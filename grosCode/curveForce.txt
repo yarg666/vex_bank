@@ -1,0 +1,10 @@
+int handle = pcopen(2,"P",@P,chf("radius"),chi("numPoint"));
+vector pos = pcfilter(handle,"P");
+vector curveDir = pcfilter(handle,"tangentu");
+vector toCurve = normalize(pos-v@P);
+vector centrifuge = normalize(cross(curveDir,toCurve));
+float globForceScale = ch("globalMult");
+
+v@force += curveDir*ch("curveDirMuilt")*-1*globForceScale;
+v@force += centrifuge*ch("centMult")*globForceScale;
+v@force += toCurve*ch("toCurveMult")*globForceScale;

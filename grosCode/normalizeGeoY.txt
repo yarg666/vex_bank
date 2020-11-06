@@ -1,0 +1,10 @@
+//center geo
+vector min, max;
+getbbox(0, min, max);
+vector centroid = (min+max)/2;;
+@P+= centroid*-1;
+
+@P*= 1/(max.y-min.y); //normalize by max height 
+@P.y+=0.5; //normalize by max height
+
+@P*=ch('realScale'); //real scale

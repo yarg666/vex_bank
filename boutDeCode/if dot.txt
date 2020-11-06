@@ -1,0 +1,2 @@
+if (dot(@N,chv("vector"))>ch("select")){
+@Cd.x=1;}

@@ -1,0 +1,3 @@
+float val = rand(@id + ch("seed"));
+int npts = npoints(0);
+if(val * npts > chi("max_pts")) removepoint(0,@ptnum);

@@ -1,0 +1,10 @@
+int handle = pcopen(1,"P",@P,1,40);
+vector tempV = pcfilter(handle,"N")*-1;
+
+if (volumesample (2,"surface",@P)<0){
+
+matrix3 m = dihedral(@vel,tempV);
+vector newV = lerp(@vel*m,@vel,0);
+@vel = newV;
+}
+else {@density=0;}

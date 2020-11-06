@@ -1,0 +1,6 @@
+vector ndc=toNDC(chs("camPath"),@P);
+//@Cd = ndc; // viz
+float secu = 0.1;
+if(ndc.x+secu<0||ndc.x-secu>1||ndc.y+secu<0||ndc.y-secu>ch("seuil")||ndc.z>0){
+removepoint(geoself(),@ptnum);
+}

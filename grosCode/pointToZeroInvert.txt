@@ -1,0 +1,2 @@
+4@Um = point (1,"myMatrix",0);
+@P*= @Um ;

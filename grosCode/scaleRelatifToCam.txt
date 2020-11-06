@@ -1,0 +1,4 @@
+string camPath = chs("camPath");
+vector posToNDC = toNDC(camPath,@P);
+posToNDC.z *= chf("scale");
+@P= fromNDC(camPath,posToNDC);

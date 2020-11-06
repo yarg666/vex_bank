@@ -1,0 +1,6 @@
+if (volumesample(1,"surface",@P)<0){
+@Cd = set(1,0,0);
+matrix3 m = dihedral(@v,{1,0,0});
+vector newV = lerp(@v*m,@v,0.9);
+@v = newV ;
+}

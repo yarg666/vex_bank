@@ -1,0 +1,4 @@
+// <UDIM> variable udim pour les texture
+
+vector uv = primuv(0, "uv", @primnum, set(0.5, 0.5, 0));
+i@udim = 1001 + int(uv.x) + int(uv.y)*10;

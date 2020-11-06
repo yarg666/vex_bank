@@ -1,0 +1,4 @@
+int prim;
+vector uv;
+xyzdist(1,@P,prim,uv);
+@P= primuv(2,"P",prim,uv);

@@ -1,0 +1,8 @@
+//center geo
+vector min, max;
+getbbox(0, min, max);
+vector centroid = (min+max)/2;;
+@P+= centroid*-1;
+
+@P*= 1/(max(max.x-min.x,max.y-min.y,max.z-min.z)); //normalize by max size
+@P*=2;

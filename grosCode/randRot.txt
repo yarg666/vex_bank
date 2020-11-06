@@ -1,0 +1,4 @@
+float x = rand(@ptnum);
+float y = rand(@ptnum+311);
+float z = rand(@ptnum-801);
+@orient = sample_orientation_uniform(set(x,y,z));

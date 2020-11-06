@@ -1,0 +1,34 @@
+//selection par orientation des normales
+
+//red
+if (dot(@N,{1,0,0})>ch("x")){
+@Cd={1,0,0};
+}
+if (dot(@N,{-1,0,0})>ch("x")){
+@Cd={1,0,0};
+}
+//green
+if (dot(@N,{0,1,0})>ch("y")){
+@Cd={0,1,0};
+}
+if (dot(@N,{0,-1,0})>ch("y")){
+@Cd={0,1,0};
+}
+//blue
+if (dot(@N,{0,0,1})>ch("z")){
+@Cd={0,0,1};
+}
+if (dot(@N,{0,0,-1})>ch("z")){
+@Cd={0,0,1};
+}
+
+//tweakNormal
+if (@Cd.x>0.1){
+@N= cross(@N,chv("rouge"));
+}
+else if (@Cd.y>0.1){
+@N= cross(@N,chv("vert"));
+}
+else @N =cross(@N,chv("bleu"));
+
+@N*=ch("normMult");

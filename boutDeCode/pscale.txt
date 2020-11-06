@@ -1,0 +1,9 @@
+float min = chf("min");
+
+float max = chf("max");
+
+float val = rand(@id);
+
+val = fit01( pow( val, chi("pow")), min, max);
+
+f@pscale = val;

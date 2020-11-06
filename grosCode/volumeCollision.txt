@@ -1,0 +1,16 @@
+
+//input 0 geo
+//input 1 sdf fill interior large voxel band
+vector displace,gradient,vSample;
+
+vSample= volumesample(1,"surface",@P);
+gradient = volumegradient(1,"surface",@P);
+
+displace = abs(vSample)*gradient;
+
+if (vSample<0){
+@P+=displace;
+}
+else {
+@P+=(displace*-1);
+}

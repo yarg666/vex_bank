@@ -1,0 +1,1 @@
+detail("../foreach_begin1_metadata1/","iteration", 0)

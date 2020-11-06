@@ -1,0 +1,2 @@
+int nearPt= nearpoint(1,@P,ch("rad"));
+@Cd = point(1,"Cd",nearPt);

@@ -1,0 +1,1 @@
+s@name = sprintf("piece_%d", i@class);

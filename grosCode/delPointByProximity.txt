@@ -1,0 +1,7 @@
+int numPoint = chi("numPoint");
+
+int mypc = pcopen(0,"P",@P,chf("radius"),numPoint);
+
+@Cd= chramp("ramp",fit(pcnumfound(mypc),0,numPoint,0,1));
+
+if (@Cd.x<chf("seuilColor"))removepoint(0,@ptnum);

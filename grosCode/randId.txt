@@ -1,0 +1,24 @@
+int maxPoint,inc,randInt,maxPts,myArray[];
+float seed;
+
+seed = ch("seed");
+maxPts = npoints(0);
+inc = 0;
+randInt= floor(rand(seed)*maxPts);
+
+for (int i=0; i<maxPts;i++){
+
+    while (len(myArray)<maxPts){
+        if (find(myArray,randInt)<0){ 
+        append(myArray,randInt);
+        }
+        else {randInt = floor(rand(inc+seed)*maxPts);
+        }
+    inc++;
+    }
+}
+
+i@idRand = myArray[@ptnum];
+
+maxPoint = chi("maxPoint");
+if (@idRand>maxPoint)removepoint(0,@ptnum);

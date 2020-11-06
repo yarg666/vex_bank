@@ -1,0 +1,11 @@
+@N=@N;
+@up=set(0,1,0);
+@orient = quaternion(maketransform(@N,@up));
+// avec x,y et z en degres
+vector4 x = quaternion(radians(ch("x")),{1,0,0});
+vector4 y = quaternion(radians(ch("y")),{0,1,0});
+vector4 z = quaternion(radians(ch("z")),{0,0,1});
+
+@orient = qmultiply(@orient,x);
+@orient = qmultiply(@orient,y);
+@orient = qmultiply(@orient,z);

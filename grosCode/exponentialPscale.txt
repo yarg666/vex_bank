@@ -1,0 +1,4 @@
+float randomized_pscale = sample_exponential(ch("mean"), rand(@ptnum));
+@pscale = lerp(@pscale, randomized_pscale, ch("randomize"));
+@pscale *= ch("scale");
+@pscale = min(max(ch("min_pscale"), @pscale), ch("max_pscale"));
