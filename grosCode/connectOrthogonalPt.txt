@@ -1,0 +1,10 @@
+int pointProche [] = nearpoints(0,@P,ch("dist"),5);
+removeindex(pointProche,0);
+int maxIt = len(pointProche);
+
+foreach (int i ;pointProche){
+    vector oPt = point(0,"P",i);
+    if (@P.x==oPt.x && @P.y==oPt.y || @P.x==oPt.x && @P.z==oPt.z ||  @P.y==oPt.y && @P.z==oPt.z ){
+        addprim(0,"polyline",@ptnum,i);
+        }
+}
