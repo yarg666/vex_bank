@@ -1,0 +1,7 @@
+//catenary chaine
+//y=2*\cosh(x/2)cos
+float a = ch("a");
+float normX = fit01(float(@ptnum)/float(@numpt),-1,1);
+@P.y += a*cosh(normX/a);
+float offset= a *cosh(-1/a);
+@P.y-=offset;
