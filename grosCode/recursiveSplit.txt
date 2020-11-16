@@ -44,3 +44,66 @@ addprim(0,"poly",sideEpt,sideFpt,bot,top);
 
 i@ok = @numprim;
 
+int subdiv(int numprim;){
+    int num = numprim;    
+    int it = chi("it");
+    for (int prim = 0 ; prim<num; prim++){
+        
+        vector posMin,posMax,midPt,newPtTop,newPtBot,sideC,sideD,sideE,sideF,diag;
+        vector pos[];
+        float dir ;
+        int points [] = primpoints(0,prim);
+        
+        foreach (int pt; points){
+            vector posA = point(0,"P",pt);
+            push(pos,posA);
+        }
+        
+        posMin = min(pos);
+        posMax = max(pos);
+        midPt  = posMin+(posMax-posMin)*fit01(rand(prim+231+it),0.01,0.98);
+        
+        diag = posMax-posMin;
+        if (abs(diag.z)>abs(diag.x)){
+        dir = 0.0;
+        }
+        else {
+        dir = 1.1;
+        }
+        
+        removeprim(0,prim,1);
+        
+        if (dir > 0.5 ){
+            newPtTop = set(midPt.x,0,posMin.z);
+            newPtBot = set(midPt.x,0,posMax.z);
+            sideC = posMin;
+            sideD = set(posMin.x,0,posMax.z);
+            sideE = set(posMax.x,0,posMin.z);
+            sideF = posMax ;
+        }
+        else {
+            newPtTop = set(posMin.x,0,midPt.z);
+            newPtBot = set(posMax.x,0,midPt.z);
+            sideC = posMin;
+            sideD = set(posMax.x,0,posMin.z);
+            sideE = set(posMin.x,0,posMax.z);
+            sideF = posMax ;
+        }
+        //addpoint(0,midPt);
+        int sideA = addpoint(0,sideC);
+        int sideB = addpoint(0,sideD);
+        int bot = addpoint(0,newPtBot);
+        int top = addpoint(0,newPtTop);
+        int sideEpt = addpoint(0,sideE);
+        int sideFpt = addpoint(0,sideF);
+        
+        addprim(0,"poly",sideA,sideB,bot,top);
+        addprim(0,"poly",sideEpt,sideFpt,bot,top);
+
+    }
+    int output = num*2;
+    return output;
+}
+
+
+int out = subdiv(@numprim);
