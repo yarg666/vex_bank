@@ -1,5 +1,41 @@
-//run over prim 
-int points [] = primpoints(0,@primnum);
-// exemple set attrib
-vector newP = point(0,"P",points[1])+1*{0,1,0};
-setpointattrib(0,"P",points[1],newP,"set");
+// dans un pt wrangle dans un solver
+//mouvement 
+v@P+=normalize(v@dir)*0.01;
+//intersect
+vector dir,pos,uvw,nPtpos,bias,tempDir;
+int newPt,intersect;
+
+dir = normalize(v@dir)*0.01;
+intersect = intersect(0,@P,dir,pos,uvw);
+
+if (intersect>=0 && i@source!=intersect){
+@group_mouv=0;
+// add newpt
+v@P=pos;
+bias =fit01(rand(@ptnum),0.1,0.9);
+nPtpos = lerp(v@startPos,v@P,bias);
+//tempDir = set(v@dir.z,0,v@dir.x);
+tempDir = normalize(cross(normalize(v@dir),{0,1,0}));
+//tempDir = {1,0,0};
+//create new point
+int newStart = addpoint(0,nPtpos);
+int mouvingPt = addpoint(0,nPtpos);
+addprim(0,"polyline",newStart,mouvingPt);
+//set attrip on new mouving points
+setpointgroup(0,"mouv",mouvingPt,1,"set");
+setpointattrib(0,"dir",mouvingPt,tempDir,"set");
+setpointattrib(0,"startPos",mouvingPt,nPtpos,"set");
+setpointattrib(0,"source",mouvingPt,i@source,"set");
+}
+
+//dans un autre wrangle appres
+float rand;
+vector dir;
+//ortho dir
+rand = floor(fit01(rand(@ptnum+1),0,2));
+rand = fit(rand,0,1,-1,1);
+if (rand(@ptnum+3)>=0.5)
+    dir = set(rand,0,0);
+else 
+    dir = set(0,0,rand);
+v@dir = dir; 

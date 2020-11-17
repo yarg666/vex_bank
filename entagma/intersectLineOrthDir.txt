@@ -1,5 +1,10 @@
-vector dir,newPos;
-float rand,lenNew;
+//pt wrangle
+vector dir,pos;
+float rand;
+int newPt;
+// init parameter
+@group_mouv = 1;
+v@startPos = v@P;
 //ortho dir
 rand = floor(fit01(rand(@ptnum+1),0,2));
 rand = fit(rand,0,1,-1,1);
@@ -7,8 +12,12 @@ if (rand(@ptnum+3)>=0.5)
     dir = set(rand,0,0);
 else 
     dir = set(0,0,rand);
-lenNew = 1;
-newPos = @P+dir*lenNew;
-int newPt = addpoint(0,newPos);
+v@dir = dir; 
+//createline 
+pos = point(0,"P",@ptnum);
+newPt=addpoint(0,pos); 
 addprim(0,"polyline",@ptnum,newPt);
-@N=rand;
+
+//dans un autre wrangle apres
+int prims[] = pointprims(0,@ptnum);
+i@source = prims[0];
