@@ -1,0 +1,5 @@
+//run over prim 
+int points [] = primpoints(0,@primnum);
+// exemple set attrib
+vector newP = point(0,"P",points[1])+1*{0,1,0};
+setpointattrib(0,"P",points[1],newP,"set");
