@@ -1,0 +1,19 @@
+//get packTransform
+matrix3 m = primintrinsic(0,"transform",i@ptnum);
+//rotate
+float angleX = radians(ch("angleX"));
+vector axisX = {1,0,0};
+rotate(m,angleX,axisX);
+float angleY = radians(ch("angleY"));
+vector axisY = {0,1,0};
+rotate(m,angleY,axisY);
+float angleZ = radians(ch("angleZ"));
+vector axisZ = {0,0,1};
+rotate(m,angleZ,axisZ);
+//scale
+vector scale = chv("scale");
+scale(m,scale);
+//transform
+@P += chv("trans");
+
+setprimintrinsic(0,"transform",i@ptnum,m,"set");

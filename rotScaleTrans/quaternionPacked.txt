@@ -1,0 +1,9 @@
+vector axis = chv("axe");
+axis = normalize(axis);
+float angle = chf("angle");
+angle = radians(angle);
+
+vector4 quat = quaternion(angle,axis);
+//v@P = qrotate(quat,@P);
+matrix3 m = qconvert(quat);
+setprimintrinsic(0,"transform",i@ptnum,m,"set");

@@ -1,0 +1,6 @@
+vector look = point(1,"P",0)-@P;
+vector up=set(0,1,0);
+
+vector4 quat = quaternion(maketransform(look,up));
+matrix3 m = qconvert(quat);
+setprimintrinsic(0,"transform",i@ptnum,m,"set");
