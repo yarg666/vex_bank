@@ -1,2 +1,4 @@
-for (i=0; i<chi("iteration"); i+=1) {
+int maxIt = chi("maxIt");
+
+for (int i=0; i<maxIt; i++) {
 }

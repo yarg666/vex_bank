@@ -1,3 +1,6 @@
 int i = 0; 
-while( i < npoints(0)){ 
+int condition = 10;
+
+while( i < condition){ 
+i++;
 }

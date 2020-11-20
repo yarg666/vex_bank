@@ -1,7 +1,7 @@
-foreach( int i; @my_array){ 
+int my_array[];
+
+foreach( int val; my_array){ 
 }
-foreach( int index; int i; @my_array){ 
-}foreach( int i; @my_array){ 
-}
-foreach( int index; int i; @my_array){ 
+
+foreach( int index; int val; my_array){ 
 }
