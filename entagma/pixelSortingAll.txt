@@ -1,0 +1,24 @@
+int numPts [] = primpoints(0,@primnum);
+float lum[];
+int indexSort[];
+int id[];
+vector color[];
+float demarage = ch("demarage");
+float stop = ch("stop");
+int selection = 0;
+
+foreach(int numPt; numPts){
+    vector ptColor =  point(0,"Cd",numPt);
+    float ptLum = avg(ptColor);
+        push(lum,ptLum);
+        push(color,ptColor);
+        push(id,numPt);
+        //trier listes
+        indexSort = argsort(lum);
+        
+        foreach(int tempId; id){
+            int tempIndex= pop(indexSort);
+            vector tempColor = lum[tempIndex];
+            setpointattrib(0,"Cd",tempId,tempColor,"set");
+            }
+}

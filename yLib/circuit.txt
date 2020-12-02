@@ -1,0 +1,24 @@
+//primpoint
+int primPts [] = primpoints(0,@primnum);
+//calculer dir
+vector pt1 = point(0,"P",primPts[1]);
+vector pt0 = point(0,"P",primPts[0]);
+setpointattrib(0,"name",primPts[1],"corner","set");
+setpointattrib(0,"name",primPts[0],"corner","set");
+//dirPoint
+vector ptPos = lerp(pt1,pt0,0.5);
+int dirPt = addpoint(0,ptPos);
+vector dir = ptPos*-1 ;
+setpointattrib(0,"dir",dirPt,dir,"set");
+setpointattrib(0,"name",dirPt,"midPoint","set");
+//addPoints sur curve
+int maxPt = chi("maxPt");
+int seed = chi("seed")+@primnum;
+//boucle
+for (int i=0;i<=maxPt;i++){
+    float randNumber = rand(i+seed);
+    vector ptCurve = lerp(pt1,pt0,randNumber);
+    addpoint(0,ptCurve);
+}
+//remove dirPt
+//removepoint(0,dirPt);

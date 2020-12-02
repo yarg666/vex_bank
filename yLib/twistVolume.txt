@@ -1,0 +1,5 @@
+//twist volume dans un vol wrangle
+float angle = radians(ch("angle"))*relbbox(0,@P).y*(length(@P*set(1,0,1))*0.6);
+vector axis = set(0,1,0);
+vector newPos = qrotate(quaternion(angle,axis),@P);
+@density = volumesample(0,0,newPos);

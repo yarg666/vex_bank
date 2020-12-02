@@ -1,0 +1,42 @@
+//grille de pyramides
+vector pyramide (vector start;int index){
+//base
+vector pos0 = set(0,0,0)+start;
+vector pos1 = set(2,0,0)+start;
+vector pos2 = set(2,0,2)+start;
+vector pos3 = set(0,0,2)+start;
+//addpoint pyramide
+int p0 = addpoint(0,pos0);
+int p1 = addpoint(0,pos1);
+int p2 = addpoint(0,pos2);
+int p3 = addpoint(0,pos3);
+//prim
+int base = addprim(0,"poly",p0,p1,p2,p3);
+//top
+vector pos4 = set(1,2,1)+start;
+int p4 = addpoint(0,pos4);
+//prim
+int poly1 = addprim(0,"poly",p0,p1,p4);
+int poly2 = addprim(0,"poly",p1,p2,p4);
+int poly3 = addprim(0,"poly",p2,p3,p4);
+int poly4 = addprim(0,"poly",p3,p0,p4);
+//out 
+vector array[]= array(pos1,pos4); 
+vector out = array[index];
+return out;
+}
+
+vector start = 0;
+vector sideStart =0;
+
+for (int i;i<5;i++)
+{
+    if (i!=0){
+    start = pyramide(start,1);
+    sideStart = start;}
+    
+    for (int i;i<7;i++)
+        {
+        sideStart = pyramide(sideStart,0);
+        }
+}

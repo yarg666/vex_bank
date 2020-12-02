@@ -1,7 +1,0 @@
-foreach( int i; @my_array){ 
-}
-foreach( int index; int i; @my_array){ 
-}foreach( int i; @my_array){ 
-}
-foreach( int index; int i; @my_array){ 
-}

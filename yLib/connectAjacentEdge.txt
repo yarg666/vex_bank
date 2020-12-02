@@ -1,0 +1,21 @@
+// connect adjacent edge style marche de saoul
+//depart = 0
+// it = $F
+int voisin(int depart;int direction){
+    int voisin = neighbour(0,depart,direction);
+    vector color = set(0,1,0);
+    int prim = addprim(0,"polyline");
+    addvertex(0,prim,depart);
+    addvertex(0,prim,voisin);
+    setpointattrib(0,"Cd",voisin,color,"set");
+    return voisin;
+}
+
+int depart = chi("depart");
+int direction = 2;
+int max = chi("max");
+
+for (int i ; i<max;i++){
+    direction = floor(rand(i)*3);
+    depart = voisin(depart,direction);
+}

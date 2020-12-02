@@ -1,0 +1,12 @@
+vector ptNum[];
+int npoint = @numpt; 
+// remplir un tableau
+for (int i=0;i<npoint;i++){
+vector pos = point(0,"P",i);
+append(ptNum,pos);
+}
+v[]@myArray=ptNum;
+//lire un tableau
+foreach(vector singlePos;ptNum){
+v@x = singlePos[0];
+}

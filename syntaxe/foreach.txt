@@ -1,0 +1,7 @@
+int my_array[];
+
+foreach( int val; my_array){ 
+}
+
+foreach( int index; int val; my_array){ 
+}

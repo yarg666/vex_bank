@@ -1,0 +1,8 @@
+//syntaxeFonction
+
+float div(float a;float b){
+float c = a/b;
+return c;
+}
+
+f@myDiv = div(4,2);

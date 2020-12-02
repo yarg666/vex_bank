@@ -1,0 +1,50 @@
+int numPts [] = primpoints(0,@primnum);
+float lum[];
+int indexSort[];
+int id[];
+vector color[];
+float demarage = ch("demarage");
+float stop = ch("stop");
+int selection = 0;
+
+foreach(int numPt; numPts){
+    vector ptColor =  point(0,"Cd",numPt);
+    float ptLum = avg(ptColor);
+    
+    if (selection== 0 && ptLum>demarage){
+        selection = 1;     
+    }
+    
+    if (selection == 1){
+        //remplir listes
+        push(lum,ptLum);
+        push(color,ptColor);
+        push(id,numPt);
+    }
+    
+    if (selection == 1 && ptLum<stop){
+        selection = 0;
+        //trier listes
+        indexSort = argsort(lum);
+        //appliquer la couleur
+        setpointattrib(0,"Cd",numPt,{0,1,0},"set");
+        foreach(int tempId; id){
+            int tempIndex= pop(indexSort);
+            vector tempColor = color[tempIndex];
+            setpointattrib(0,"Cd",tempId,tempColor,"set");
+        }
+        // ma soluce il faut reverse indexSort
+        //foreach(int index ;int val; indexSort){
+            //vector tempColor = color[val];
+            //int tempId = id[index];
+            //setpointattrib(0,"Cd",tempId,tempColor,"set");
+        //}
+        //vider listes
+        resize(lum,0);
+        resize(id,0);
+        resize(color,0);
+        resize(indexSort,0);
+        
+    }
+    
+}
