@@ -1,0 +1,28 @@
+// connect adjacent edge style propagation plus chaos
+//depart = 0
+// it = $F
+int depart = chi("depart");
+vector color = set(0,1,0);
+int voisins[] = neighbours(0,depart);
+int maxIt = fit(chi("it"),0,30,0,30);
+int prim = addprim(0,"polyline");
+
+for (int i;i<maxIt;i++){
+    
+    foreach (int voisin;voisins)
+        {
+        setpointattrib(0,"Cd",voisin,color,"set");
+        addvertex(0,prim,voisin);
+        int newArray[]=neighbours(0,voisin);
+        append(voisins,newArray);
+            
+        }
+        
+        foreach(int i ; voisins)
+            {
+                foreach(int index ;int b ; voisins)
+                {
+                    if (b==i){removeindex(voisins,index);}
+                }
+            } 
+}

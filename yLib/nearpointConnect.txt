@@ -1,0 +1,22 @@
+// input un geo test input deux nuage de pts
+int handle = pcopen(1,"P",@P,20,100);
+int max =  pcnumfound(handle);
+
+for (int i;i<max;i++){
+vector start = point(1,"P",i);
+
+int near[]= nearpoints(0,start,10,3);
+
+int prim = addprim(0,"polyline");
+int startPt = addpoint(0,start);
+
+int primTwo = addprim(0,"poly");
+
+foreach(int index;int pt;near){
+    vector color = rand(index);
+    setpointattrib(0,"Cd",pt,color,"set");
+    addvertex(0,prim,startPt);
+    addvertex(0,prim,pt);
+    addvertex(0,primTwo,pt);
+}
+}
