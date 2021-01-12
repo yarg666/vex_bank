@@ -1,0 +1,3 @@
+v@P.x = rint((@P.x/2))*2;
+v@P.y = rint((@P.y/3))*3;
+v@P.z = rint((@P.z/2))*2;

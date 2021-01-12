@@ -1,0 +1,13 @@
+vector min,max;
+int it = 0;
+getbbox(0,min,max);
+int maxIt = chi("maxIt");
+
+while (it<=maxIt){
+it++;
+float randx = rand(it+987)*max.x;
+float randy=rand(it+876)*max.y;
+float randz=rand(it)*max.z;
+vector rand = set(randx,randy,randz);
+addpoint(0,rand);
+}

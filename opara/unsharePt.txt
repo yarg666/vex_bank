@@ -1,0 +1,5 @@
+// garde les points interieurs
+int proche [] = nearpoints(0,@P,2,5);
+int len = len(proche);
+if (len!=5)removepoint(0,@ptnum);
+
