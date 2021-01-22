@@ -1,0 +1,13 @@
+>> benuts/Library/Characters/
+IconImage
+/prod/studio/user/houdini/_common/040-hda
+
+/prod/studio/user/houdini/_common/041-hda/
+
+/prod/project/si_on_chantait/assets/FX/Crowd/fx3d/setup/work/houdini/character/props/
+
+/prod/project/si_on_chantait/assets/FX/Crowd/fx3d/setup/review/
+
+opdef:../..?$OS.obj
+
+/prod/project/si_on_chantait/common/editing/movie/SOC-Montage_stade_v01.mp4
