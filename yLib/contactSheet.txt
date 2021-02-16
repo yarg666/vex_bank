@@ -1,0 +1,15 @@
+int x=0;
+int y=2;
+vector pos;
+int ligne = chi("ligne");
+int max = @numpt;
+for (int i = 0; i<max;i++){
+    x+=2;
+    if (i%ligne == 0){
+        y+=-2;
+        x=0;
+        }
+    pos = set(x,y,0);
+    setpointattrib(0,"P",i,pos,"set");
+
+}

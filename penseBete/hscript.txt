@@ -1,0 +1,2 @@
+// string match retourne 01 
+strmatch("walking_crouched_1", points("../getClipName/",0,"clipname"))

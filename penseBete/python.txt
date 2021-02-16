@@ -1,0 +1,10 @@
+from os import listdir
+from os.path import isfile, join
+
+input= "/prod/project/si_on_chantait/assets/FX/Crowd/fx3d/setup/work/houdini/mixamo/20210125/stadium/fbx/"
+file = [f for f in listdir(input) if isfile(join(input,f))]
+print file
+
+for i in file:
+    hou.parm('/obj/Source/ropAgent1/load_clips_file1').set(input+i)
+    hou.parm('/obj/Source/ropAgent1/cache_to_disk_execute').pressButton()
