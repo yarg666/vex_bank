@@ -14,7 +14,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Raoul/materials/Raoul_Body')`"
+                                                "value":"`opfullpath('../agents/Raoul/materials/Raoul_Body')`"
                                         }
                                 }
                         }
@@ -33,7 +33,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Raoul/materials/Raoul_Main')`"
+                                                "value":"`opfullpath('../agents/Raoul/materials/Raoul_Main')`"
                                         }
                                 }
                         }
@@ -52,7 +52,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Raoul/materials/Raoul_Eyes')`"
+                                                "value":"`opfullpath('../agents/Raoul/materials/Raoul_Eyes')`"
                                         }
                                 }
                         }
@@ -71,7 +71,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Raoul/materials/Raoul_Pants')`"
+                                                "value":"`opfullpath('../agents/Raoul/materials/Raoul_Pants')`"
                                         }
                                 }
                         }
@@ -90,7 +90,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Raoul/materials/Raoul_Shoes')`"
+                                                "value":"`opfullpath('../agents/Raoul/materials/Raoul_Shoes')`"
                                         }
                                 }
                         }
@@ -109,7 +109,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Raoul/materials/Raoul_Shirt')`"
+                                                "value":"`opfullpath('../agents/Raoul/materials/Raoul_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Raoul Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*aoul*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Raoul/materials/Raoul_Tshirt')`"
                                         }
                                 }
                         }
@@ -128,7 +147,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Paul/materials/Paul_Body')`"
+                                                "value":"`opfullpath('../agents/Paul/materials/Paul_Body')`"
                                         }
                                 }
                         }
@@ -147,7 +166,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Paul/materials/Paul_Arms')`"
+                                                "value":"`opfullpath('../agents/Paul/materials/Paul_Arms')`"
                                         }
                                 }
                         }
@@ -166,7 +185,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Paul/materials/Paul_Eyes')`"
+                                                "value":"`opfullpath('../agents/Paul/materials/Paul_Eyes')`"
                                         }
                                 }
                         }
@@ -185,7 +204,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Paul/materials/Paul_Hair')`"
+                                                "value":"`opfullpath('../agents/Paul/materials/Paul_Hair')`"
                                         }
                                 }
                         }
@@ -204,7 +223,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Paul/materials/Paul_Pants')`"
+                                                "value":"`opfullpath('../agents/Paul/materials/Paul_Pants')`"
                                         }
                                 }
                         }
@@ -223,7 +242,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Paul/materials/Paul_Shoes')`"
+                                                "value":"`opfullpath('../agents/Paul/materials/Paul_Shoes')`"
                                         }
                                 }
                         }
@@ -242,7 +261,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Paul/materials/Paul_Shirt')`"
+                                                "value":"`opfullpath('../agents/Paul/materials/Paul_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Paul Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*aul*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Paul/materials/Paul_Tshirt')`"
                                         }
                                 }
                         }
@@ -261,7 +299,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Charlotte/MATERIALS/Charlotte_Body')`"
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Body')`"
                                         }
                                 }
                         }
@@ -280,7 +318,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Charlotte/MATERIALS/Charlotte_Arms')`"
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Arms')`"
                                         }
                                 }
                         }
@@ -299,7 +337,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Charlotte/MATERIALS/Charlotte_Eyes')`"
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Eyes')`"
                                         }
                                 }
                         }
@@ -318,7 +356,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Charlotte/MATERIALS/Charlotte_Hair')`"
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Hair')`"
                                         }
                                 }
                         }
@@ -337,7 +375,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Charlotte/MATERIALS/Charlotte_Pants')`"
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Pants')`"
                                         }
                                 }
                         }
@@ -356,7 +394,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Charlotte/MATERIALS/Charlotte_Shoes')`"
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Shoes')`"
                                         }
                                 }
                         }
@@ -375,7 +413,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Charlotte/MATERIALS/Charlotte_Shirt')`"
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Charlotte Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*harlotte*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Tshirt')`"
                                         }
                                 }
                         }
@@ -394,7 +451,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Charlotte/MATERIALS/Charlotte_Cap')`"
+                                                "value":"`opfullpath('../agents/Charlotte/MATERIALS/Charlotte_Cap')`"
                                         }
                                 }
                         }
@@ -413,7 +470,83 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Elizabeth/MATERIALS/Elizabeth_Body')`"
+                                                "value":"`opfullpath('../agents/Elizabeth/MATERIALS/Elizabeth_Body')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Elizabeth Costume",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@agentname=*lizabeth*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Elizabeth/MATERIALS/Elizabeth_Costume')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Elizabeth Shoes",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@agentname=*lizabeth*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hoes*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Elizabeth/MATERIALS/Elizabeth_Shoes')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Elizabeth Pants",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@agentname=*lizabeth*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*Pants*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Elizabeth/MATERIALS/Elizabeth_Pants')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Elizabeth Skin",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@agentname=*lizabeth*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*Skin*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Elizabeth/MATERIALS/Elizabeth_Skin')`"
                                         }
                                 }
                         }
@@ -432,7 +565,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Elizabeth/MATERIALS/Elizabeth_Shirt')`"
+                                                "value":"`opfullpath('../agents/Elizabeth/MATERIALS/Elizabeth_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Elizabeth Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*lizabeth*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Elizabeth/MATERIALS/Elizabeth_Body')`"
                                         }
                                 }
                         }
@@ -451,7 +603,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Elizabeth/MATERIALS/Elizabeth_Hair')`"
+                                                "value":"`opfullpath('../agents/Elizabeth/MATERIALS/Elizabeth_Hair')`"
                                         }
                                 }
                         }
@@ -470,7 +622,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Brian/MATERIALS/Brian_Body')`"
+                                                "value":"`opfullpath('../agents/Brian/MATERIALS/Brian_Body')`"
                                         }
                                 }
                         }
@@ -489,7 +641,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Brian/MATERIALS/Brian_Shirt')`"
+                                                "value":"`opfullpath('../agents/Brian/MATERIALS/Brian_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Brian Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*rian*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*Shirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Brian/MATERIALS/Brian_Body')`"
                                         }
                                 }
                         }
@@ -508,7 +679,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Megan/MATERIALS/Megan_Body')`"
+                                                "value":"`opfullpath('../agents/Megan/MATERIALS/Megan_Body')`"
                                         }
                                 }
                         }
@@ -527,7 +698,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Megan/MATERIALS/Megan_Shirt')`"
+                                                "value":"`opfullpath('../agents/Megan/MATERIALS/Megan_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Megan Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*egan*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Megan/MATERIALS/Megan_Body')`"
                                         }
                                 }
                         }
@@ -546,7 +736,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Megan/MATERIALS/Megan_Hair')`"
+                                                "value":"`opfullpath('../agents/Megan/MATERIALS/Megan_Hair')`"
                                         }
                                 }
                         }
@@ -565,7 +755,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Sophie/MATERIALS/Sophie_Body')`"
+                                                "value":"`opfullpath('../agents/Sophie/MATERIALS/Sophie_Body')`"
                                         }
                                 }
                         }
@@ -584,7 +774,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Sophie/MATERIALS/Sophie_Shirt')`"
+                                                "value":"`opfullpath('../agents/Sophie/MATERIALS/Sophie_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Sophie Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*ophie*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Sophie/MATERIALS/Sophie_Body')`"
                                         }
                                 }
                         }
@@ -603,7 +812,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Sophie/MATERIALS/Sophie_Hair')`"
+                                                "value":"`opfullpath('../agents/Sophie/MATERIALS/Sophie_Hair')`"
                                         }
                                 }
                         }
@@ -622,7 +831,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Bryce/MATERIALS/Bryce_Body')`"
+                                                "value":"`opfullpath('../agents/Bryce/MATERIALS/Bryce_Body')`"
                                         }
                                 }
                         }
@@ -641,7 +850,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Bryce/MATERIALS/Bryce_Shirt')`"
+                                                "value":"`opfullpath('../agents/Bryce/MATERIALS/Bryce_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Bryce Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*ryce*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Bryce/MATERIALS/Bryce_Body')`"
                                         }
                                 }
                         }
@@ -660,7 +888,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Bryce/MATERIALS/Bryce_Hair')`"
+                                                "value":"`opfullpath('../agents/Bryce/MATERIALS/Bryce_Hair')`"
                                         }
                                 }
                         }
@@ -679,7 +907,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Josh/MATERIALS/Josh_Body')`"
+                                                "value":"`opfullpath('../agents/Josh/MATERIALS/Josh_Body')`"
                                         }
                                 }
                         }
@@ -698,7 +926,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Josh/MATERIALS/Josh_Shirt')`"
+                                                "value":"`opfullpath('../agents/Josh/MATERIALS/Josh_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Josh Suit 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*osh*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Josh/MATERIALS/Josh_Body')`"
                                         }
                                 }
                         }
@@ -717,7 +964,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Josh/MATERIALS/Josh_Hair')`"
+                                                "value":"`opfullpath('../agents/Josh/MATERIALS/Josh_Hair')`"
                                         }
                                 }
                         }
@@ -736,7 +983,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Kate/MATERIALS/Kate_Body')`"
+                                                "value":"`opfullpath('../agents/Kate/MATERIALS/Kate_Body')`"
                                         }
                                 }
                         }
@@ -755,7 +1002,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Kate/MATERIALS/Kate_Shirt')`"
+                                                "value":"`opfullpath('../agents/Kate/MATERIALS/Kate_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Kate Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*ate*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Kate/MATERIALS/Kate_Body')`"
                                         }
                                 }
                         }
@@ -774,7 +1040,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Kate/MATERIALS/Kate_Hair')`"
+                                                "value":"`opfullpath('../agents/Kate/MATERIALS/Kate_Hair')`"
                                         }
                                 }
                         }
@@ -793,7 +1059,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Lewis/MATERIALS/Lewis_Shirt')`"
+                                                "value":"`opfullpath('../agents/Lewis/MATERIALS/Lewis_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Lewis Body 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*ewis*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Lewis/MATERIALS/Lewis_Body')`"
                                         }
                                 }
                         }
@@ -812,7 +1097,22 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Suzie/MATERIALS/Suzie_Body')`"
+                                                "value":"`opfullpath('../agents/Suzie/MATERIALS/Suzie_Body')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"displaceOv",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"*"
+                        },
+                        "overrides":{
+                                "materialParameters":{
+                                        "vm_truedisplace":{
+                                                "type":"float",
+                                                "value":0
                                         }
                                 }
                         }
@@ -831,7 +1131,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Suzie/MATERIALS/Suzie_Shirt')`"
+                                                "value":"`opfullpath('../agents/Suzie/MATERIALS/Suzie_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Suzie Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*uzie*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*uit*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Suzie/MATERIALS/Suzie_Body')`"
                                         }
                                 }
                         }
@@ -850,7 +1169,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Suzie/MATERIALS/Suzie_Hair')`"
+                                                "value":"`opfullpath('../agents/Suzie/MATERIALS/Suzie_Hair')`"
                                         }
                                 }
                         }
@@ -869,7 +1188,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Jody/MATERIALS/Jody_Body')`"
+                                                "value":"`opfullpath('../agents/Jody/MATERIALS/Jody_Body')`"
                                         }
                                 }
                         }
@@ -888,7 +1207,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Jody/MATERIALS/Jody_Shirt')`"
+                                                "value":"`opfullpath('../agents/Jody/MATERIALS/Jody_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Jody Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*ody*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Jody/MATERIALS/Jody_Body')`"
                                         }
                                 }
                         }
@@ -907,7 +1245,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Jody/MATERIALS/Jody_Hair')`"
+                                                "value":"`opfullpath('../agents/Jody/MATERIALS/Jody_Hair')`"
                                         }
                                 }
                         }
@@ -926,7 +1264,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Joe/MATERIALS/Joe_Shirt')`"
+                                                "value":"`opfullpath('../agents/Joe/MATERIALS/Joe_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Joe Body 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*oe*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Joe/MATERIALS/Joe_Body')`"
                                         }
                                 }
                         }
@@ -945,7 +1302,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Joe/MATERIALS/Joe_Hair')`"
+                                                "value":"`opfullpath('../agents/Joe/MATERIALS/Joe_Hair')`"
                                         }
                                 }
                         }
@@ -964,7 +1321,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/James/MATERIALS/James_Shirt')`"
+                                                "value":"`opfullpath('../agents/James/MATERIALS/James_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"James Body 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*ames*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/James/MATERIALS/James_Body')`"
                                         }
                                 }
                         }
@@ -983,7 +1359,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/James/MATERIALS/James_Shoes')`"
+                                                "value":"`opfullpath('../agents/James/MATERIALS/James_Shoes')`"
                                         }
                                 }
                         }
@@ -1002,16 +1378,16 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Louise/MATERIALS/Louise_Body')`"
+                                                "value":"`opfullpath('../agents/Louise/MATERIALS/Louise_Body')`"
                                         }
                                 }
                         }
                 },
                 {
-                        "label":"Louise Shirt",
+                        "label":"Louise Shirt 2",
                         "target":{
                                 "label":"Target",
-                                "pointGroup":"@agentname=*ouise*",
+                                "pointGroup":"@teamId=2 ^!@agentname=*ouise*",
                                 "subTarget":{
                                         "label":"Sub-target",
                                         "shape":"*uit*"
@@ -1021,7 +1397,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Louise/MATERIALS/Louise_Shirt')`"
+                                                "value":"`opfullpath('../agents/Louise/MATERIALS/Louise_Body')`"
                                         }
                                 }
                         }
@@ -1040,7 +1416,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Louise/MATERIALS/Louise_Hair')`"
+                                                "value":"`opfullpath('../agents/Louise/MATERIALS/Louise_Hair')`"
                                         }
                                 }
                         }
@@ -1049,7 +1425,7 @@
                         "label":"Stephani Skin",
                         "target":{
                                 "label":"Target",
-                                "pointGroup":"@agentname=*tephani*",
+                                "pointGroup":"@agentname=*tefani*",
                                 "subTarget":{
                                         "label":"Sub-target",
                                         "shape":"*kin*"
@@ -1059,7 +1435,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Stefani/MATERIALS/Stephani_Skin')`"
+                                                "value":"`opfullpath('../agents/Stefani/MATERIALS/Stephani_Skin')`"
                                         }
                                 }
                         }
@@ -1068,7 +1444,7 @@
                         "label":"Stephani Shirt",
                         "target":{
                                 "label":"Target",
-                                "pointGroup":"@agentname=*tephani*",
+                                "pointGroup":"@agentname=*tefani*",
                                 "subTarget":{
                                         "label":"Sub-target",
                                         "shape":"*hirt*"
@@ -1078,7 +1454,26 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Stefani/MATERIALS/Stephani_Shirt')`"
+                                                "value":"`opfullpath('../agents/Stefani/MATERIALS/Stephani_Shirt')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Stephani Shirt 2",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@teamId=2 ^!@agentname=*tefani*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*hirt*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Stefani/MATERIALS/Stephani_Skin')`"
                                         }
                                 }
                         }
@@ -1087,7 +1482,7 @@
                         "label":"Stephani Shoes",
                         "target":{
                                 "label":"Target",
-                                "pointGroup":"@agentname=*tephani*",
+                                "pointGroup":"@agentname=*tefani*",
                                 "subTarget":{
                                         "label":"Sub-target",
                                         "shape":"*hoes*"
@@ -1097,7 +1492,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Stefani/MATERIALS/Stephani_Shoes')`"
+                                                "value":"`opfullpath('../agents/Stefani/MATERIALS/Stephani_Shoes')`"
                                         }
                                 }
                         }
@@ -1106,7 +1501,7 @@
                         "label":"Stephani Pants",
                         "target":{
                                 "label":"Target",
-                                "pointGroup":"@agentname=*tephani*",
+                                "pointGroup":"@agentname=*tefani*",
                                 "subTarget":{
                                         "label":"Sub-target",
                                         "shape":"*ants*"
@@ -1116,26 +1511,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Stefani/MATERIALS/Stephani_Pants')`"
-                                        }
-                                }
-                        }
-                },
-                {
-                        "label":"Stephani Hair",
-                        "target":{
-                                "label":"Target",
-                                "pointGroup":"@agentname=*tephani*",
-                                "subTarget":{
-                                        "label":"Sub-target",
-                                        "shape":"*air*"
-                                }
-                        },
-                        "overrides":{
-                                "material":{
-                                        "name":{
-                                                "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Stefani/MATERIALS/Stephani_Hair')`"
+                                                "value":"`opfullpath('../agents/Stefani/MATERIALS/Stephani_Pants')`"
                                         }
                                 }
                         }
@@ -1144,7 +1520,7 @@
                         "label":"Stephani Eyes",
                         "target":{
                                 "label":"Target",
-                                "pointGroup":"@agentname=*tephani*",
+                                "pointGroup":"@agentname=*tefani*",
                                 "subTarget":{
                                         "label":"Sub-target",
                                         "shape":"*yes*"
@@ -1154,7 +1530,7 @@
                                 "material":{
                                         "name":{
                                                 "type":"string",
-                                                "value":"`opfullpath('/obj/agents/Stefani/MATERIALS/Stephani_Eyes')`"
+                                                "value":"`opfullpath('../agents/Stefani/MATERIALS/Stephani_Eyes')`"
                                         }
                                 }
                         }
@@ -1417,6 +1793,25 @@
                         }
                 },
                 {
+                        "label":"Stephani Hair",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@agentname=*tefani*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*air*"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('../agents/Stefani/MATERIALS/Stephani_Hair')`"
+                                        }
+                                }
+                        }
+                },
+                {
                         "label":"shirtRed",
                         "target":{
                                 "label":"Target",
@@ -1426,13 +1821,11 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.708999991416931152,0,0.0820603445172309875
+                                                "value":[0.321139872074127197,0.347039222717285156,0.256461977958679199
                                                 ]
                                         }
                                 }
@@ -1448,13 +1841,11 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.333000000000000018,0.333000000000000018,0.333000000000000018
+                                                "value":[0.915000021457672119,0.824415028095245361,0.717360019683837891
                                                 ]
                                         }
                                 }
@@ -1470,8 +1861,6 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1492,13 +1881,11 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.263099998235702515,0.300000011920928955,0.300000011920928955
+                                                "value":[0.430920004844665527,0.44615599513053894,0.456000000238418579
                                                 ]
                                         }
                                 }
@@ -1514,13 +1901,11 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.620999991893768311,0.0215284824371337891,0
+                                                "value":[0.387500017881393433,0.0697500035166740417,0
                                                 ]
                                         }
                                 }
@@ -1536,13 +1921,11 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.211078435182571411,0.207156866788864136,0.226764708757400513
+                                                "value":[0.338214606046676636,0.301784992218017578,0.340999990701675415
                                                 ]
                                         }
                                 }
@@ -1558,8 +1941,6 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1580,13 +1961,11 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.298039227724075317,0.32156863808631897,0.37254902720451355
+                                                "value":[0.0650000000000000022,0.15192897617816925,0.458999991416931152
                                                 ]
                                         }
                                 }
@@ -1602,13 +1981,11 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.149019613862037659,0.145098045468330383,0.129411771893501282
+                                                "value":[0.212999999523162842,0.199112400412559509,0.143562003970146179
                                                 ]
                                         }
                                 }
@@ -1630,7 +2007,7 @@
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.360000014305114746,0.0900000035762786865,0.0900000035762786865
+                                                "value":[0.285999999999999976,0.1170240119099617,0.1170240119099617
                                                 ]
                                         }
                                 }
@@ -1668,8 +2045,6 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1690,8 +2065,6 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1712,8 +2085,6 @@
                                         "shape":"*hirt*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1734,8 +2105,6 @@
                                         "shape":"*uit*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1756,8 +2125,6 @@
                                         "shape":"*uit*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1778,8 +2145,6 @@
                                         "shape":"*uit*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1800,8 +2165,6 @@
                                         "shape":"*uit*"
                                 }
                         },
-                        "flags":["mute"
-                        ],
                         "overrides":{
                                 "materialParameters":{
                                         "basecolor":{
@@ -1893,7 +2256,7 @@
                         }
                 },
                 {
-                        "label":"Scarf_Or",
+                        "label":"Scarf_2A_VAFC",
                         "target":{
                                 "label":"Target",
                                 "pointGroup":"@scarfId==0",
@@ -1903,17 +2266,37 @@
                                 }
                         },
                         "overrides":{
-                                "materialParameters":{
-                                        "basecolor":{
-                                                "type":"floatarray",
-                                                "value":[0.874509811401367188,0.698039233684539795,0
-                                                ]
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('MATERIALS/Scarf_2A_VAFC')`"
                                         }
                                 }
                         }
                 },
                 {
-                        "label":"Scarf_Rouge",
+                        "label":"Scarf_3A_VAFC",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@scarfId==0",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*carf*"
+                                }
+                        },
+                        "flags":["mute"
+                        ],
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('MATERIALS/Scarf_3A_VAFC')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"Scarf_2A_RLC",
                         "target":{
                                 "label":"Target",
                                 "pointGroup":"@scarfId==1",
@@ -1923,31 +2306,31 @@
                                 }
                         },
                         "overrides":{
-                                "materialParameters":{
-                                        "basecolor":{
-                                                "type":"floatarray",
-                                                "value":[0.80392158031463623,0,0.0235294122248888016
-                                                ]
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('MATERIALS/Scarf_2A_RLC')`"
                                         }
                                 }
                         }
                 },
                 {
-                        "label":"Scarf_Noir",
+                        "label":"Scarf_3A_RLC",
                         "target":{
                                 "label":"Target",
-                                "pointGroup":"@scarfId==2",
+                                "pointGroup":"@scarfId==1",
                                 "subTarget":{
                                         "label":"Sub-target",
                                         "shape":"*carf*"
                                 }
                         },
+                        "flags":["mute"
+                        ],
                         "overrides":{
-                                "materialParameters":{
-                                        "basecolor":{
-                                                "type":"floatarray",
-                                                "value":[0.0500000000000000028,0.0500000000000000028,0.0500000000000000028
-                                                ]
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('MATERIALS/Scarf_3A_RLC')`"
                                         }
                                 }
                         }
@@ -1966,7 +2349,7 @@
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.505882382392883301,0,0.0039215688593685627
+                                                "value":[0.391000000000000014,0,0.0039215688593685627
                                                 ]
                                         }
                                 }
@@ -1986,7 +2369,7 @@
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.80392158031463623,0,0.0235294122248888016
+                                                "value":[0.430999994277954102,0.117999999999999994,0.0749999999999999972
                                                 ]
                                         }
                                 }
@@ -2006,7 +2389,7 @@
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.0250000000000000014,0.0250000000000000014,0.0250000000000000014
+                                                "value":[0.133689999580383301,0.135725796222686768,0.144999995827674866
                                                 ]
                                         }
                                 }
@@ -2026,7 +2409,7 @@
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.882352948188781738,0.639215707778930664,0
+                                                "value":[0.208177447319030762,0.22960469126701355,0.147217854857444763
                                                 ]
                                         }
                                 }
@@ -2046,23 +2429,67 @@
                                 "materialParameters":{
                                         "basecolor":{
                                                 "type":"floatarray",
-                                                "value":[0.823529422283172607,0.352941185235977173,0
+                                                "value":[0.648999989032745361,0.322566002607345581,0.0941049829125404358
                                                 ]
                                         }
                                 }
                         }
                 },
                 {
-                        "label":"displaceOv",
+                        "label":"drapeau",
                         "target":{
                                 "label":"Target",
-                                "pointGroup":"*"
+                                "pointGroup":"*",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"drapeau"
+                                }
+                        },
+                        "overrides":{
+                                "material":{
+                                        "name":{
+                                                "type":"string",
+                                                "value":"`opfullpath('MATERIALS/Scarf_1')`"
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"drapeau_VAFC_color",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@scarfId==0",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*drapeau*"
+                                }
                         },
                         "overrides":{
                                 "materialParameters":{
-                                        "vm_truedisplace":{
-                                                "type":"float",
-                                                "value":0
+                                        "basecolor":{
+                                                "type":"floatarray",
+                                                "value":[0.299999999999999989,0.0749999999999999972,0.0749999999999999972
+                                                ]
+                                        }
+                                }
+                        }
+                },
+                {
+                        "label":"drapeau_RLC_color",
+                        "target":{
+                                "label":"Target",
+                                "pointGroup":"@scarfId==1",
+                                "subTarget":{
+                                        "label":"Sub-target",
+                                        "shape":"*drapeau*"
+                                }
+                        },
+                        "overrides":{
+                                "materialParameters":{
+                                        "basecolor":{
+                                                "type":"floatarray",
+                                                "value":[1,0.5,0
+                                                ]
                                         }
                                 }
                         }
