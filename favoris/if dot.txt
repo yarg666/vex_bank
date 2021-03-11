@@ -1,2 +1,4 @@
+@Cd = 0;
 if (dot(@N,chv("vector"))>ch("select")){
 @Cd.x=1;}
+else {removepoint(0,@ptnum);}
