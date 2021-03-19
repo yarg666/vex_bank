@@ -1,0 +1,11 @@
+geo=hou.node("./IN_shapes").geometry()
+
+menuList=[]
+
+for point in geo.iterPoints():
+    name=point.attribValue("name")
+    if not name in menuList:
+        menuList.append(name)
+        menuList.append(name)
+    
+return menuList
