@@ -1,1 +1,3 @@
 `chs("../"+opinput(".",0)+"/currentclip")`
+
+`opinputpath("..", 2)`
