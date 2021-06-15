@@ -1,3 +1,5 @@
 `chs("../"+opinput(".",0)+"/currentclip")`
 
 `opinputpath("..", 2)`
+
+`points("../"+opinput(".",0),0,"agentname")`_base
