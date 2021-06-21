@@ -1,0 +1,7 @@
+packname =hou.node('/obj/crowdTwo/crowd_Source1').geometry().findGlobalAttrib("packname")
+packname = packname.strings()[0]
+if packname == "packOne":
+    style = 0
+elif packname == "packTwo":
+    style = 1
+ 

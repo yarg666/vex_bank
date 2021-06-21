@@ -1,0 +1,11 @@
+import sys 
+
+import PySide2.Qtwidgets as cul 
+
+app = cul.QApplication(sys.argv)
+
+lab= cul.QLabel()
+
+lab.show()
+
+sys.exit(app.exit_())

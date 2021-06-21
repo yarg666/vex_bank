@@ -1,0 +1,16 @@
+import nodesearch
+version = 12
+
+list = hou.node("/obj").allSubChildren()
+        
+#rendu    
+matchType = nodesearch.NodeType("CG::cgmantra*")
+matchName = nodesearch.Name("*")
+match = nodesearch.Group([matchType,matchName])
+                
+net = hou.node("/out/")
+#self.listSort()
+
+for node in match.nodes(net,recursive =True):
+    
+    node.parm("version").set(version)
