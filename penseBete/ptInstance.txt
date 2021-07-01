@@ -1,0 +1,1 @@
+point("../pathToPoitnsInstance"),instancepoint(),"myAttribute",0)
