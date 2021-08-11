@@ -3,3 +3,5 @@
 `opinputpath("..", 2)`
 
 `points("../"+opinput(".",0),0,"agentname")`_base
+
+opinputpath('.',0)
