@@ -1,0 +1,13 @@
+import os 
+
+dir= "//stord/diskd/BDD/crowd_bank/hyppodrome_tempete/texture/name/"
+
+for f in os.listdir(dir):
+    oldf = f
+    f = f.split("_")
+    f[0] = f[0].lower() + f[1]
+    f.pop(1)
+    newF = "_".join(f)
+    print oldf
+    print newF
+    os.rename(dir+oldf,dir+newF)

@@ -1,0 +1,11 @@
+// creer une liste a partir des noms sur les points 
+
+s[]@nameListe;
+string nameT;
+int maxit=@numpt;
+for (int i=0;i<maxit;i++)
+{
+    nameT = point(0,"name",i);
+    if (len(nameT)>0 && find(s[]@nameListe,nameT)<0){
+        push(s[]@nameListe,nameT);}
+}
