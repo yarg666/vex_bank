@@ -1,0 +1,22 @@
+from PIL import Image
+import os
+import PIL
+import glob
+imgRoots = '//stord/diskd/BDD/crowd_bank/hyppodrome_tempete/textureLow/'
+subFolder = "/femme01/"
+
+roots= r"//stord/diskd/BDD/crowd_bank/hyppodrome_tempete/textureLow"+subFolder+"0/Mantra/"
+
+
+dirPath = roots
+result = next(os.walk(dirPath))[2]
+print(result)
+
+
+for img in result:
+    image = Image.open(roots+img)
+
+    resized_image = image.resize((1024,1024))
+
+    resized_image.save(roots+img)
+

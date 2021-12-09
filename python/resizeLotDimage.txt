@@ -1,0 +1,31 @@
+from PIL import Image
+import os
+import PIL
+import glob
+
+imgRoots = '//stord/diskd/BDD/crowd_bank/hyppodrome_tempete/textureLow/'
+
+listFemme = ["02","07","08","11","12"]
+listHomme = ["01","02","04","05","06","10","15","16","18","20","21","22","23"]
+
+
+for elem in listFemme :
+
+    subFolder = "/femme"+elem+"/"
+    
+    sousDos = next(os.walk(imgRoots+subFolder))[1]
+    
+    roots= r"//stord/diskd/BDD/crowd_bank/hyppodrome_tempete/textureLow"+subFolder+"0/Mantra/"
+    
+    dirPath = roots
+    result = next(os.walk(dirPath))[2]
+    
+    
+    for i in sousDos:
+        roots = r"//stord/diskd/BDD/crowd_bank/hyppodrome_tempete/textureLow"+subFolder+i+"/Mantra/"
+        
+        for img in result:
+            image = Image.open(roots+img)
+            resized_image = image.resize((1024,1024))
+            resized_image.save(roots+img)
+

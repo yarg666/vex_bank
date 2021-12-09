@@ -1,0 +1,43 @@
+import hou, os
+
+iconvert = hou.getenv("HFS")  + "/bin/" +"iconvert.exe"
+iconvert = os.path.abspath(iconvert)
+
+folder = hou.ui.selectFile(title='Images Folder', file_type=hou.fileType.Directory)
+folder = hou.expandString(folder)
+
+files = os.listdir(folder)
+
+dot = "."
+extension = "rat"
+exts = ('.exr', '.jpg', '.tga', '.png','.tif', '.hdr')
+
+def rat_folder():
+    for file in files:
+        realName = os.path.abspath( folder + file)
+
+        file_ext = realName[-4:]
+        
+        if file_ext in exts:
+           
+            export = iconvert + " " +  realName + " " + realName[:-4] + dot + extension 
+
+            exists = os.path.exists(realName[:-4] + dot + extension)
+
+            if exists is True:
+                status = "File exists. Skipping..."
+            else:
+                os.system(export)
+                status = "Success!"
+
+            print "----------------------------------------------"
+            print "RAT FOLDER STATUS: " + status
+            print "original = " + realName
+            print "new ="  + realName[:-4] + dot + extension
+            print "----------------------------------------------"
+
+if folder != '':
+    safety = hou.ui.displayMessage("Are you sure you want to convert all images in " + folder + " ?", buttons=('Yes', 'No'))
+
+    if safety == 0 and folder != '':
+        rat_folder()

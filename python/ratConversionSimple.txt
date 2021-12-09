@@ -1,0 +1,29 @@
+from os import listdir,path,system,environ
+
+# node courant
+myPath = hou.pwd()
+# parent deux niveau au dessus 
+parent = str(myPath.parent().parent().path())
+import nodesearch
+#cherche par hda
+matchType = nodesearch.NodeType("*texture::2.0")
+#cherche quimporte le nom du node
+matchName = nodesearch.Name("*")
+match = nodesearch.Group([matchType,matchName])
+#!!! cherche a partir de ce chemin !!!
+net = hou.node(parent+"/")
+#extension
+ext = "exr"
+for node in match.nodes(net,recursive =True):
+    map = node.parm("map").eval()
+    if path.exists(file) :
+        print node
+        file = map[:-3]+ext
+        print file
+
+        #system("iconvert "+file+" "+file[:-3]+"rat")
+        ratMap = map[:-3]+"rat"
+        node.parm("map").set(ratMap)
+        print ("...")
+        print ("convert to -> "+ratMap)
+
