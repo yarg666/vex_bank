@@ -1,0 +1,25 @@
+from os import listdir,path,system,environ
+
+# node courant
+myPath = hou.pwd()
+# parent deux niveau au dessus 
+parent = str(myPath.parent().parent().path())
+import nodesearch
+#cherche par hda
+matchType = nodesearch.NodeType("*texture::2.0")
+matchName = nodesearch.Name("*")
+match = nodesearch.Group([matchType,matchName])
+net = hou.node(parent+"/")
+
+ext = "exr"
+toExt = "rat"
+
+for node in match.nodes(net,recursive =True):
+    map = node.parm("map").eval()
+    
+    if map[-3:]== ext :
+        ratMap = map[:-3]+ toExt
+        node.parm("map").set(ratMap)
+        print ("rename -> " +ratMap)
+
+

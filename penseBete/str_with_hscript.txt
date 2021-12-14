@@ -1,2 +1,4 @@
 
 `points("../agent/",0,"agentname")`
+
+ch("../../"+chs("camera")+"/aspect")
