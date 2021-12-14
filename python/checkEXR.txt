@@ -1,0 +1,33 @@
+import OpenEXR
+import os
+
+
+roots = "//stord/diskd/BDD/crowd_bank/testText/"
+dirPath = roots
+result = next(os.walk(dirPath))[2]
+
+imgInvalid = []
+
+
+
+for i in result:
+    if i[-3:]== "exr" :
+        try:
+            image = OpenEXR.InputFile(roots+i)
+            if image.isComplete():
+                print 'Valid image'
+            else:
+                print 'Invalid image'
+                imgInvalid.append(i)
+            image.close()
+        except:
+            imgInvalid.append(i)
+
+
+selListe= hou.ui.selectFromList(imgInvalid,clear_on_cancel=True) #ui select list
+for t in selListe:
+    os.remove(roots+imgInvalid[t])
+    print imgInvalid[t] + " ... a ete supprime"
+
+#https://excamera.com/articles/26/doc/openexr.html#OpenEXR.InputFile.isComplete
+
