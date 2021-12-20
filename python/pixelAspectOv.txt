@@ -1,0 +1,4 @@
+import OpenEXR
+
+header = OpenEXR.InputFile(hou.parm("vm_picture")).header()
+header['pixelAspectRatio'] = 2.0
