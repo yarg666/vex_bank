@@ -1,0 +1,7 @@
+@pscale = fit01(rand(@id+454654),ch("min"),ch("max"));
+
+if (rand(@id+987)<ch("gros")){
+@pscale = fit01(rand(@id+454654),ch("minGros"),ch("maxGros"));
+}
+
+@pscale *= ch("globalMult");
