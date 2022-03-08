@@ -1,0 +1,30 @@
+import hou 
+
+def changeP():
+
+    # node roots
+    cNode = kwargs["node"].parent().path()
+    
+    rootsPath= hou.parm(cNode+'/nodeRoots').eval()
+    oldPath= hou.parm(cNode+'/oldPath').eval()
+    newPath= hou.parm(cNode+'/newPath').eval()
+    # recup la liste des node a un endroit donner
+    nodeRoots=hou.node(rootsPath)
+    child = nodeRoots.allSubChildren()
+    
+    # pour chaque node 
+    for c in child:
+        # recup la liste des parmetre 
+        parms = c.allParms()
+        #pour parm in parmListe:
+        for p in parms:
+            type =  p.parmTemplate().type()
+            if str(type) == "parmTemplateType.String":
+                if oldPath in p.eval():
+                    newString = p.eval().replace(oldPath,newPath)
+                    setP = p.set(newString)
+                    print p.eval()
+                    
+                
+
+changeP() 
