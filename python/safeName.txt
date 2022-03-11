@@ -1,0 +1,2 @@
+import re
+nullName=re.sub("[^0-9a-zA-Z\.]+", "_", nullName)

@@ -1,0 +1,21 @@
+@group_prim = 1;
+int maxpt = chi("max");
+vector randPos, randUv,tempN,tempUV;
+int randPrim;
+int seed = chi("seed");
+
+for (int i=0; i<maxpt; i++) {
+    randPrim = int(rint(rand(i+seed*1000)*@numprim));
+    randUv = set(rand(i+5),rand(i+8),0);
+    randPos = primuv(0,"P",randPrim,randUv);
+    //transfer att
+    tempN =primuv(0,"N",randPrim,randUv);
+    tempUV=primuv(0,"uv",randPrim,randUv);
+    //add pts
+    int nPt = addpoint(0,randPos);
+    //set att
+    setpointattrib(0,"N",nPt,tempN,"set");
+    setpointattrib(0,"uv",nPt,tempUV,"set");
+}
+
+if (@group_prim==1)removeprim(0,@primnum,1);

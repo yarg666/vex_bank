@@ -1,0 +1,23 @@
+createCgNull
+#get current pane
+netEdit = hou.ui.paneTabUnderCursor()
+#create node
+nullName=hou.ui.readInput("donner un nom : ") [1]
+if len(nullName) == 0:
+    nullName = "donner_un_nom"
+# safe name
+import re
+nullName=re.sub("[^0-9a-zA-Z\.]+", "_", nullName)
+#create cgNull with safe name
+myNull = currentNode.createOutputNode("CG::cgnull::0.0",nullName)
+#get cursor pos
+pos = netEdit.cursorPosition()
+myNull.setPosition(pos)
+myNull.move([-0.5, -1])
+
+currentNode.setGenericFlag(hou.nodeFlag.DisplayComment,True)
+renderName = str(myNull.name())+"_cache"
+currentNode.setName(renderName)
+
+if currentNode.parm("lecture").eval():
+    myNull.destroy()
