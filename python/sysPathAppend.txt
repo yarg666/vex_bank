@@ -1,0 +1,7 @@
+"""
+import sys
+sys.path.append('//stord/diskd/tempete/setup-foule/houdini/fx/jmargelin/setup-foule_fx_seqFinMultiCam_jmargelin/scripts')
+import fullNeige as fullNeige
+reload(fullNeige)
+
+"""
