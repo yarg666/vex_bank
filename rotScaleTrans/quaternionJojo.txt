@@ -1,0 +1,3 @@
+float angle = radians(ch('angle'));
+
+p@orient = quaternion(angle,{0,1,0});
