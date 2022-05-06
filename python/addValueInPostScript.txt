@@ -1,0 +1,9 @@
+import hou
+
+list = hou.selectedNodes()
+
+for i in list:
+    pyS = i.parm("prerender")
+    toChange = pyS.eval()
+    tmp = toChange + "\n" + "hou.parm('/obj/RENDER_Neige1/vm_pointscale').set(1)"
+    pyS.set(tmp)

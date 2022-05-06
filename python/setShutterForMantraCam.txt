@@ -1,0 +1,9 @@
+import hou
+
+list = hou.selectedNodes()
+
+for i in list:
+    camP = i.parm("camera").eval()
+    cam = hou.node(camP)
+    cam.parm("shutter").deleteAllKeyframes()
+    cam.parm("shutter").set(0.3)

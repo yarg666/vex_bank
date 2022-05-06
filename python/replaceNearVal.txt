@@ -1,0 +1,9 @@
+import hou
+
+list = hou.selectedNodes()
+
+for i in list:
+    pyS = i.parm("prerender")
+    toChange = pyS.eval()
+    tmp = toChange.replace("15","25")
+    pyS.set(tmp)
