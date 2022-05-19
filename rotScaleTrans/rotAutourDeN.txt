@@ -1,4 +1,4 @@
-@N=@N;
+@N=normalize(@N);
 @up=set(0,1,0);
 @orient = quaternion(maketransform(@N,@up));
 // avec x,y et z en degres
