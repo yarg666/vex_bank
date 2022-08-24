@@ -1,0 +1,3 @@
+float lenV = length(v@v);
+
+v@v = normalize(v@v)*clamp(lenV,0,4);
