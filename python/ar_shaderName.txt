@@ -1,0 +1,29 @@
+import hou 
+import os     
+import glob
+from arnold import * 
+node = hou.pwd()
+
+geo = node.geometry()
+assPath = node.parm("../ass").eval()
+print assPath
+
+AiBegin()
+AiMsgSetConsoleFlags(AI_LOG_ALL)
+AiASSLoad(assPath,AI_NODE_ALL)
+
+# Iterate over all shape nodes, which includes procedural nodes
+iter = AiUniverseGetNodeIterator(AI_NODE_SHAPE);
+while not AiNodeIteratorFinished(iter):
+    node = AiNodeIteratorGetNext(iter)
+ 
+    # Is the node a procedural? 
+    if AiNodeIs( node, "polymesh" ):
+        data = AiNodeGetPtr( node, "shader" )
+        name = AiNodeGetStr( node, "name" )
+        #shader = AiNodeGetArray( node, "shader" )
+        if len(name)>0:
+            print (name)
+            print (data)
+            shaderName = AiNodeGetStr( data, "name" )
+            print(shaderName)
