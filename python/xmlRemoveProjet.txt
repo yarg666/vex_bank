@@ -1,0 +1,13 @@
+from lxml import etree
+
+xmlPath = "//stord/diskd/BDD/xmlFile/backup/testClean.xml"
+tree = etree.parse(xmlPath)
+tronc = tree.getroot()
+myList=[]
+for i in tronc:
+        if i.attrib['name']=='eightForSilver':
+            parent = i.getparent()
+            parent.remove(i)
+        
+myList=sorted(myList)
+tree.write("//stord/diskd/BDD/xmlFile/backup/testClean.xml")
