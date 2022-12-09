@@ -5,3 +5,5 @@
 `points("../"+opinput(".",0),0,"agentname")`_base
 
 opinputpath('.',0)
+//chemin du parent direct
+`opname('..')`
