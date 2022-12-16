@@ -1,0 +1,15 @@
+import maya.cmds as cmds
+
+# Get the list of all shape nodes in the scene
+shape_nodes = cmds.ls(type='shape')
+print(shape_nodes)
+# Iterate over each shape node
+for shape_node in shape_nodes:
+    # Get the name of the shader that is assigned to the shape node
+    try:
+        shader_name = cmds.listConnections(shape_node, type='shadingEngine')[0]
+        # Rename the shape node to include the name of the shader
+        new_shape_name = shape_node + "_" + shader_name
+        cmds.rename(shape_node, new_shape_name)
+    except:
+        print("No Shader Found for {}".format(shape_node))

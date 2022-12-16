@@ -1,0 +1,36 @@
+# exemple de code python
+#color
+print ("debut")
+rootsM = "/obj/chaiseLongue/mantra_mat" 
+rootsN = hou.node(rootsM)
+
+nodes = hou.selectedNodes()
+
+import nodesearch
+matchType = nodesearch.NodeType("arnold::image")
+matchName = nodesearch.Name("*")
+match = nodesearch.Group([matchType,matchName])
+
+for node in nodes:
+    #textL = []
+    nPath = node.path()
+    searchP = node
+    name = node.name()
+    nMat = rootsN.createNode("cgMaterial",name) 
+    nMat.parm("udimsCheck").set(1)
+    child = node.children()
+    
+    for nodeF in child:
+        print ("cild_" + nodeF.name())
+        print (nodeF.type())
+        if nodeF.type().nameComponents()[2] == "image":
+            print("text type "+nodeF.name())
+            textN = nodeF.name()
+            #texL.append(nodeF.parm('filename').eval())
+            textP = nodeF.parm('filename').eval()
+            createT = nMat.createNode("texture",textN) 
+            createT.parm("map").set(textP)
+    
+print("fin")    
+    
+
