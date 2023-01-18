@@ -1,0 +1,13 @@
+import os
+
+dir = '//storf/diskf/SoudainSeuls/setup-station/RC/OUT/test/'
+
+list = os.listdir(dir)
+print list
+for i in list:
+    source = dir + i
+    tmp = i.split("_")
+    nName = tmp[0] + "_" + tmp[1] + "." + tmp[2]
+    destination = dir + nName
+    print (source)
+    os.rename (source,destination)
