@@ -7,3 +7,5 @@
 opinputpath('.',0)
 //chemin du parent direct
 `opname('..')`
+
+point(opinputpath(".", 0),1,"P",0)
