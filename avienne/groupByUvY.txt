@@ -1,0 +1,1 @@
+if(@uv.y<chf("seuil")) @group_base = 1;

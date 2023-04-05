@@ -1,0 +1,3 @@
+//// Blend shape through a mask attribute - Posted by Cudarsjanis on Odforce
+// Geo with mask attribute in first input, blend shape in second
+v@P=lerp(v@P, point(1,'P',@ptnum), f@mask*ch('blend'));

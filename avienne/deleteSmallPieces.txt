@@ -1,0 +1,6 @@
+// As seen on Sidefx forum, posted by paulboiii
+// First create a measure SOP, set to per piece
+
+// Then, in an attribwrangle set on primitives
+float threshold = chf("Size_Threshold");
+if ( f@area < threshold ) removeprim(0,@primnum,1);

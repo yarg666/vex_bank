@@ -1,0 +1,3 @@
+@Cd.r = relbbox(0,@P).x;
+@Cd.g = relbbox(0,@P).y;
+@Cd.b = relbbox(0,@P).z;

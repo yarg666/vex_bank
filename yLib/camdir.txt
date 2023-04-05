@@ -1,0 +1,2 @@
+vector pt0 = point(1,'P',0);
+v@raydir = normalize(  pt0 - @P )*-1;

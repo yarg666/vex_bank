@@ -1,0 +1,5 @@
+setpointattrib(0,"mask",324,1,mode="set") ;
+
+//or
+
+if (@ptnum == 322) f@mask=1;

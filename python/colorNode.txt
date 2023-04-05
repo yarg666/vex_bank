@@ -1,0 +1,14 @@
+node = hou.pwd()
+geo = node.geometry()
+
+# Add code to modify contents of geo.
+# Use drop down menu to select examples.
+
+
+color =node.inputAncestors()[0]
+r=color.parm("colorr").eval()
+g=color.parm("colorg").eval()
+b=color.parm("colorb").eval()
+myColor = hou.Color((r,g,b))
+
+color.setColor(myColor)
