@@ -1,0 +1,21 @@
+vector basePtPos = point (0,"P",chi("basepoint")); 
+
+matrix m = ident();
+
+v@Z_axis =normalize( basePtPos - point(0,"P",neighbour(0,chi("basepoint"),1)));
+v@Y_axis =normalize( cross(@Z_axis,basePtPos-point(0,"P",neighbour(0,chi("basepoint"),0))))*-1;
+v@X_axis =normalize ( cross (@Z_axis,@Y_axis))*-1 ;
+
+m*= set (@X_axis,@Y_axis,@Z_axis);
+translate (m,basePtPos);
+// invert transform 
+4@myMatrix = m;
+m=invert(m);
+
+
+@P*= m;
+
+// revert transform 
+
+4@Um = point (1,"myMatrix",0);
+@P*= @Um ;
