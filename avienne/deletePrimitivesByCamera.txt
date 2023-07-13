@@ -1,0 +1,13 @@
+// From yarg666 - Get cameraOrigin in input 1
+
+vector pt0 = point(1,'P',0);
+v@raydir = normalize(  pt0 - @P )*-1;
+
+// Get falloff attribute
+
+@falloff = dot(v@raydir, @N);
+
+// Promote falloff on Primitives then in a Wrangle set on Primitives
+
+if ( f@falloff>chf("seuil") ) removeprim(0,@primnum,1);
+

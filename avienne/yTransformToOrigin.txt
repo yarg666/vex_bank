@@ -8,14 +8,9 @@ v@X_axis =normalize ( cross (@Z_axis,@Y_axis))*-1 ;
 
 m*= set (@X_axis,@Y_axis,@Z_axis);
 translate (m,basePtPos);
-// invert transform 
+
 4@myMatrix = m;
 m=invert(m);
 
 
 @P*= m;
-
-// revert transform 
-
-//4@Um = point (1,"myMatrix",0);
-//@P*= @Um ;

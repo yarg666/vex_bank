@@ -1,0 +1,4 @@
+//set pscale first
+
+f@bboxY = relbbox(0,@P).y;
+@pscale *= chramp("rampBbox",@bboxY)*4 ;
