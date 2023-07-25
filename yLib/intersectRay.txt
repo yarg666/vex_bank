@@ -1,0 +1,10 @@
+vector orig = point(1,"P",0);
+float dist = distance(orig,@P)-0.01;
+vector dir = normalize(@P-orig)*dist;
+
+vector pos,uvw;
+int intersect = intersect(0,orig,dir,pos,uvw);
+
+if (intersect>0 ){
+@Cd = 0;
+}
