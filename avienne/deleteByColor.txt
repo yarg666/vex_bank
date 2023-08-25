@@ -1,0 +1,1 @@
+if (@Cd.x<chf("seuilColor"))removepoint(0,@ptnum);
