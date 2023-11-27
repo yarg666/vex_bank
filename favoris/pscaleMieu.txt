@@ -1,7 +1,11 @@
+     
+// check si il y a un att id sur les points
+if (haspointattrib(0,"id")==0 ){@id = @ptnum;}
+// random globale
 @pscale = fit01(rand(@id+454654),ch("min"),ch("max"));
-
-if (rand(@id+987)<ch("gros")){
+// pourcentage des plus gros 
+if (rand(@id+987)<ch("pctDePlusGros")){
 @pscale = fit01(rand(@id+454654),ch("minGros"),ch("maxGros"));
 }
-
+// un scale globale
 @pscale *= ch("globalMult");
