@@ -1,0 +1,4 @@
+vector t=chv("t"),r=chv("r"),s=chv("scale"),p=chv("pivot"),pr=chv("pr");
+matrix transf = maketransform(0,0,t,r,s,p,pr);
+
+v@tmpP = @P*transf;
