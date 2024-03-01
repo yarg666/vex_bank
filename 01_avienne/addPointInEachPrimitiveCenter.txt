@@ -1,0 +1,2 @@
+addpoint(0, @P);
+removeprim(0, @primnum, 1);

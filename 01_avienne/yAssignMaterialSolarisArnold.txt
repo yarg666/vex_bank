@@ -1,0 +1,6 @@
+string shop_materialpath = usd_attrib(0, @primpath, 'primvars:shop_materialpath');
+string dir, name;
+splitpath(shop_materialpath, dir, name);
+string roots = "/materials/";
+string matPath = roots + name;
+return matPath;

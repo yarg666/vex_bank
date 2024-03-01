@@ -1,0 +1,2 @@
+string path = @path;
+s@path = re_replace(r"Deformed", "", path);
