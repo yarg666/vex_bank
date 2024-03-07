@@ -1,0 +1,6 @@
+int handle = pcopen(1,"P",@P,1,1);
+vector tempV = pcfilter(handle,"N");
+
+matrix3 m = dihedral(@vel,tempV);
+vector newV = lerp(@vel*m,@vel,0.975);
+@vel = newV ;

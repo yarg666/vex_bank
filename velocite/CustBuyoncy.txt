@@ -1,0 +1,4 @@
+//custom buyoncy
+float strength =1;
+vector dir = set(0,0,1);
+@vel += strength * @temperature * dir; 
