@@ -1,0 +1,2 @@
+string name [] = split(s@path,"/");
+s@path = name[0];
