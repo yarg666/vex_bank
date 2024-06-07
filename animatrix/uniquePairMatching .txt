@@ -1,0 +1,10 @@
+// premier wrangle 
+int pts [] = pcfind (1,"notfound","P",@P,1e15,1);
+i@match = pts[0];
+
+// second wrangle
+int index = findattribval (0,"point","match",i@match,0);
+if (index == @ptnum){
+i@group_notfound = 0 ; 
+}
+

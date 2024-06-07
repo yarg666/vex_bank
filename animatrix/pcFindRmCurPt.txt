@@ -1,0 +1,3 @@
+int pts[] = pcfind(0,"P",@P,ch("rad"),chi("pt"));
+removevalue(pts,@ptnum);
+int count = len (pts);

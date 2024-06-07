@@ -1,0 +1,7 @@
+int points[] = pcfind(0,"P",@P,ch("rad"),chi("pt"));
+
+foreach(int myPoint; points){
+if (point(0,"stopped",myPoint)==0){
+    @Cd = set(1,0,0);
+    }
+}

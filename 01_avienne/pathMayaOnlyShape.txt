@@ -1,0 +1,4 @@
+s@path = split(s@path, "/")[-1];
+s@path = split(s@path, ":")[-1];
+string path = @path;
+s@path = re_replace(r"Deformed", "", path);

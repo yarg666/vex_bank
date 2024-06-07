@@ -1,0 +1,7 @@
+int pts [] = pcfind_radius(1,"P","pscale",ch("rscale"),@P,ch("r"),chi("maxpts"));
+int pts2 [] = pcfind_radius(1,"P","pscale",ch("rscale"),@P,ch("r")+ch("wid"),chi("maxpts"));
+
+if (len (pts)==0 && len (pts2)>0 ){
+vector color = point(1,"Cd",pts2[0]);
+@Cd = color;
+}

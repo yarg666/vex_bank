@@ -1,0 +1,13 @@
+float radius = ch("rad");
+int min = chi("min");
+int max = chi("max");
+
+int pts [] = pcfind(0,"P",@P,1e15,min);
+vector p = point(0,"P",pts[-1]);
+float maxdist = distance2 (p,@P);
+
+if (maxdist < radius*radius){
+pts = pcfind (0,"P",@P,radius,max);
+}
+
+i@count = len (pts);

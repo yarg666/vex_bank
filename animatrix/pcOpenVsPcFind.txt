@@ -1,0 +1,11 @@
+// get density
+// avec pcOpen
+float r = ch("r");
+int maxpts = chi("maxpts");
+int handle = pcopen(0,"P",@P,r,maxpts);
+@density = pcnumfound(handle) / float(maxpts);
+// avec pcFind
+float r = ch("r");
+int maxpts = chi("maxpts");
+int pts [] = pcfind (0,"P",@P,r,maxpts);
+@density = len (pts) / float (maxpts);

@@ -1,0 +1,2 @@
+// extraire les donne de rotation et transforme a partir d_une matrice
+v@rot = cracktransform(0,0,1,0,4@transform);

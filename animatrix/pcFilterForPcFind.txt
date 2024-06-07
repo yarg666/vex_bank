@@ -1,0 +1,23 @@
+vector pcfilter2 (int input; int pts[]; float dist[]; string channel)
+{
+    float    sum = 0, w, d;
+    vector    value, result = 0;
+    float maxd = dist[-1];
+    int count = len (pts);
+    for (int i = 0 ; i< count; i++ )
+    {
+        value = point(input, channel, pts[i]);
+        w = 1 - smooth(0, maxd*1.1, dist[i]);
+        sum += w;
+        result += w * value;
+    }
+    result /= sum;
+    return result;
+}
+
+float r = ch("r");
+int maxpts = chi("maxpts");
+float dist [] = {};
+int pts [] = pcfind (1,"P",@P,r,maxpts,dist);
+
+@Cd = pcfilter2(1,pts,dist,"Cd");

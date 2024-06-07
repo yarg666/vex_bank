@@ -1,0 +1,98 @@
+from imp import reload
+print("coucouc de y_usd")
+
+import hou
+import os
+import json
+
+def openUsdJson():
+    roots = "//storx/diskx/houdini_pipe/json/"
+    name = "usd.json"
+    file_path = os.path.join(roots, name)
+    # Assure-toi que les répertoires existent
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    
+    return data,file_path
+
+def usd_cache_majData(data):
+    #node = hou.node('/obj/setup_pluie/wedge_B')
+    hou.pwd().parent().parent()
+    print("maj data")
+    projet = node.parm("project_parm").menuLabels()[node.parm("project_parm").eval()]
+    roots = os.getenv("FTRACK_SHOW_ROOT")[:14]
+    seq = node.parm("sequence_parm").menuLabels()[node.parm("sequence_parm").eval()]
+    shot = node.parm("shot_parm").menuLabels()[node.parm("shot_parm").eval()]
+    seqShot = seq + "-" + shot
+    shotID = os.getenv("SHOTID") 
+    task = node.parm("task_parm").menuLabels()[node.parm("task_parm").eval()]
+    user = os.getenv("USER")
+    sceneName = os.getenv("ASSETNAME")
+    cacheName = node.parm("cache_name_parm").eval()
+    version = node.parm("version_parm").eval()
+    range = node.parm("f1").evalAsString() + "-" + node.parm("f2").evalAsString()
+    filePath = node.parm("outtemplatefile1").eval()
+    
+
+    #data["usd_assets"]={}
+    if "projet" not in data["usd_cache"]:
+        data["usd_cache"]["projet"] = {}
+    if projet not in data["usd_cache"]["projet"]:
+        data["usd_cache"]["projet"][projet]={}
+    if "roots" not in data["usd_cache"]["projet"][projet]:
+        data["usd_cache"]["projet"][projet]["roots"]={}
+    if roots not in data["usd_cache"]["projet"][projet]["roots"]:
+        data["usd_cache"]["projet"][projet]["roots"][roots]={}  
+    if "seqShot" not in data["usd_cache"]["projet"][projet]:
+        data["usd_cache"]["projet"][projet]["seqShot"]={}
+    if seqShot not in data["usd_cache"]["projet"][projet]["seqShot"]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]={}
+        
+    if "shotId" not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["shotId"]={}
+    if shotID not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["shotId"]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["shotId"]=shotID     
+    if "task" not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"]={}
+    if task not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]={}
+    if "user" not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"]={}
+    if user not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]={}
+    if "sceneName" not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"]={}
+    if sceneName not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]={}
+    if "cacheName" not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"]={}
+    if cacheName not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]={}
+    if "version" not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]["version"]={}
+    if version not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]["version"]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]["version"][version]={}        
+    if "filepath" not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]["version"][version]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]["version"][version]["filepath"]={} 
+    if filePath not in data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]["version"][version]["filepath"]:
+        data["usd_cache"]["projet"][projet]["seqShot"][seqShot]["task"][task]["user"][user]["sceneName"][sceneName]["cacheName"][cacheName]["version"][version]["filepath"][filePath]={}
+        
+    return data
+
+def ecrireUsdJson(data,file_path):
+    # Ouvre le fichier en mode écriture et écrit la structure JSON
+    with open(file_path, 'w', encoding='utf-8') as file:
+        json.dump(data, file, indent=4)
+        
+    print(f"JSON créé et écrit dans {file_path}")    
+
+
+
+def usd_json():
+    data, file_path = openUsdJson()
+    data = usd_cache_majData(data)
+    ecrireUsdJson(data,file_path)
+    
+    
+usd_json()

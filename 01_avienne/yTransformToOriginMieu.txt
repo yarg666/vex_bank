@@ -1,0 +1,37 @@
+
+ 
+
+vector basePtPos = point (0,"P",chi("basepoint")); 
+
+matrix m = ident();
+
+v@Z_axis =normalize( basePtPos - point(0,"P",neighbour(0,chi("basepoint"),1)));
+v@Y_axis =normalize( cross(@Z_axis,basePtPos-point(0,"P",neighbour(0,chi("basepoint"),0))))*1;
+v@X_axis =normalize ( cross (@Z_axis,@Y_axis))*-1 ;
+
+m*= set (@X_axis,@Y_axis,@Z_axis);
+
+//rotate
+float angleX = radians(ch("angleX"));
+vector axisX = {1,0,0};
+rotate(m,angleX,axisX);
+float angleY = radians(ch("angleY"));
+vector axisY = {0,1,0};
+rotate(m,angleY,axisY);
+float angleZ = radians(ch("angleZ"));
+vector axisZ = {0,0,1};
+rotate(m,angleZ,axisZ);
+
+translate (m,basePtPos);
+
+4@myMatrix = m;
+
+m=invert(m);
+
+
+@P*= m;
+
+
+
+
+
