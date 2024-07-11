@@ -2,3 +2,9 @@
 `points("../agent/",0,"agentname")`
 
 ch("../../"+chs("camera")+"/aspect")
+
+
+`chs("../../obj/" + strreplace(strsplit(opname("."), "_", 0), " ", "") + "/camera/imgPath")`
+
+
+ch("../../obj/" + strreplace(strsplit(opname("."), "_", 0), " ", "") + "/camera/pixelRatio")
