@@ -1,0 +1,95 @@
+
+
+
+//delete by attribute value             
+//int match_point = findattribval(1, "point", "id", @id);
+//if (match_point==-1) removepoint(0,@ptnum);
+                
+//delete
+//if (@Cd.x<chf("seuilColor"))removepoint(0,@ptnum);
+//if (rand(@ptnum+654)<chf("seuil"))removepoint(0,@ptnum);
+
+//volumesample
+//if (volumesample(1,"surface",@P)<0)removepoint(0,@ptnum);
+
+//pscale
+//@pscale*= fit01(rand(@ptnum+654),0.8,1.2);
+
+//pcopen pcfilter
+//int handle = pcopen(1,"P",@P,chf("radius"),chi("numPoint"));
+//@Cd = pcfilter(handle,"Cd");
+
+//chramp color
+//@Cd= chramp("ramp",fit(@curvature,0,1000,0,1));
+
+// normalize curve ramp
+//@Cd= chramp("Cd",float(@ptnum)/float(@numpt));
+
+//dot
+//if (dot(@N,chv("vector"))>ch("select")){
+//@Cd.x=1;}
+
+//constraint
+//s@constraint_name= "ConRelGlue" ;
+//s@constraint_type= "all" ;
+
+//group en fonction de la distance a la camera
+//vector camDir = point(1,"P",0)-@P;
+//f@pointDist = length(camDir);
+
+//if (@pointDist>ch("distFromCam")){
+//@group_foreground = 1 ; } 
+//else {@group_background = 1;}
+
+//forloop
+//int i;
+//for (i=0; i<chi("iteration"); i+=1) {
+//}
+
+
+//tangent
+//@N= @P-point(0,"P",@ptnum-1);
+//if (@ptnum==0)@N= point(0,"N",@ptnum-2);
+
+//rotation
+//@N=@N;
+//@up=set(0,1,0);
+//@orient = quaternion(maketransform(@N,@up));
+
+//vector4 x = quaternion(radians(ch("x")),{1,0,0});
+//vector4 y = quaternion(radians(ch("y")),{0,1,0});
+//vector4 z = quaternion(radians(ch("z")),{0,0,1});
+
+//@orient = qmultiply(@orient,x);
+//@orient = qmultiply(@orient,y);
+//@orient = qmultiply(@orient,z);
+
+//move point by primUv
+//vector uv;int prim;
+//xyzdist(1,@P,prim,uv);
+//@P= primuv(2,"P",prim,uv);
+//@N= primuv(2,"N",prim,uv);
+
+//point on curve with primUv
+//vector uv;
+//uv.x = ch("uvX");
+//uv.y= ch("uvY");
+//@P= primuv(1,"P",0,uv);
+
+//noise
+//vector freq = chv("frequence");vector offset = chv("offset");
+//float amp = ch("amplitude");int turb = chi("turbulence");
+//float rough = ch("rough");float atten = ch("attenuation");
+
+//onoise(@P*freq - offset, turb, rough, atten) * amp
+//snoise(@P*freq - offset, turb, rough, atten) * amp
+//@Cd*=anoise(@P*freq - offset, turb, rough, atten) * amp;
+
+//vop_correctperlinNoiseVF(@P*freq - offset, turb, rough, atten) * amp
+//vop_correctperlinNoiseVV(@P*freq - offset, turb, rough, atten) * amp
+//vop_simplexNoiseVF(@P*freq - offset, turb, rough, atten) * amp
+//vop_simplexNoiseVV(@P*freq - offset, turb, rough, atten) * amp
+//vop_perlinNoiseVF(@P*freq - offset, turb, rough, atten) * amp
+//vop_perlinNoiseVV(@P*freq - offset, turb, rough, atten) * amp 
+
+
