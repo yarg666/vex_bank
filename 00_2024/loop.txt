@@ -1,0 +1,3 @@
+int frameoffset =int(fit01(rand(@ptnum),chi("offsetStart"),ch("offsetEnd")));
+int loop = (int(@Frame)+frameoffset) % chi("tailleDuClip") + chi("startF") +1 ;
+i@frame = loop;

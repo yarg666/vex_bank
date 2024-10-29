@@ -1,0 +1,1 @@
+f@frameoffset =int(fit01(rand(@ptnum),50,100));
