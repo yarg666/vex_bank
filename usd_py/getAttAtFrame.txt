@@ -1,0 +1,23 @@
+node = hou.pwd()
+stage = node.editableStage()
+from pxr import Sdf, Usd, UsdGeom
+import loputils
+
+# Get Parameters - Replace these with your own values!
+
+sourceframe = 1000
+primvarname = "Pref"
+
+# Parse Primpattern
+ls = hou.LopSelectionRule()
+ls.setPathPattern('%type:Mesh')
+paths = ls.expandedPaths(stage=stage)
+
+# Compute Point Reference
+for prim in paths:
+    prim = stage.GetPrimAtPath(prim)
+    primvarsapi = UsdGeom.PrimvarsAPI(prim)
+    points = prim.GetAttribute('points')
+    points_values = points.Get(sourceframe)
+    primvar = primvarsapi.CreatePrimvar(primvarname, Sdf.ValueTypeNames.Color3fArray, UsdGeom.Tokens.vertex)
+    primvar.Set(points_values)

@@ -1,0 +1,1 @@
+v[]@primvars:Pref=usd_attrib("opinput:0",@primpath,"points",1000.0);

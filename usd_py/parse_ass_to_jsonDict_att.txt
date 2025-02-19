@@ -1,0 +1,47 @@
+import hou 
+import os     
+import glob
+from arnold import *
+import string
+safechars = string.ascii_lowercase + string.ascii_uppercase + string.digits + '.-:_/'
+node = hou.pwd()
+from pxr import Usd, UsdGeom, Sdf
+
+ls = hou.LopSelectionRule()
+ls.setPathPattern('%type:Mesh')
+paths = ls.expandedPaths(node.inputs()[0])
+
+stage = node.editableStage()
+
+assPath = "//stori/diski/test2/setup-toto/published/surfacing/test2_setup_toto_toto_surfacing_v001_ass/toto_ass.ass"
+mydict={}
+#parse ass file
+AiBegin()
+AiMsgSetConsoleFlags(None,AI_LOG_ALL)
+AiASSLoad(None,assPath,AI_NODE_ALL)
+
+iter = AiUniverseGetNodeIterator(None, AI_NODE_SHAPE);
+while not AiNodeIteratorFinished(iter):
+    node = AiNodeIteratorGetNext(iter)
+    if AiNodeIs( node, "polymesh" ):
+        data = AiNodeGetPtr( node, "shader" )
+        name = AiNodeGetStr( node, "name" )
+        if len(name)>0:
+            shaderName = AiNodeGetStr( data, "name" )
+            shaderName = shaderName.replace(":","_")
+            #shaderName = ''.join([c for c in shaderName if c in safechars])
+            name = ''.join([c for c in name if c in safechars])
+            name = name.split("/")[-1]
+            name = name.split(":")[-1]
+            mydict[name] = shaderName
+  
+AiNodeIteratorDestroy(iter)
+
+import json
+json_dict = json.dumps(mydict, indent=4)
+
+for path in paths:
+    prim = stage.GetPrimAtPath(path)
+    print(json_dict)
+    attr = prim.CreateAttribute("json_shd",Sdf.ValueTypeNames.String)
+    attr.Set(json_dict)

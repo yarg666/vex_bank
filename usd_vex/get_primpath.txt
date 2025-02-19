@@ -1,0 +1,5 @@
+f@o=1.0;
+
+//s@so="dd";
+
+s@so=@primpath;

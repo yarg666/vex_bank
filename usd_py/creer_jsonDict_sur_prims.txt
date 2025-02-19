@@ -1,0 +1,25 @@
+
+node = hou.pwd()
+from pxr import Usd, UsdGeom, Sdf
+
+ls = hou.LopSelectionRule()
+ls.setPathPattern('%type:Mesh')
+paths = ls.expandedPaths(node.inputs()[0])
+
+stage = node.editableStage()
+
+mydict = {
+    "name": "Toto",
+    "version": 1.2,
+    "tags": ["hero", "adventure"],
+    "active": True
+}
+import json
+json_dict = json.dumps(mydict, indent=4)
+
+for path in paths:
+    prim = stage.GetPrimAtPath(path)
+    print(json_dict)
+    attr = prim.CreateAttribute("json_shd",Sdf.ValueTypeNames.String)
+    attr.Set(json_dict)
+

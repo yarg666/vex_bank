@@ -1,0 +1,7 @@
+string jD = s@jsonDict;
+
+dict dictFjson = json_loads(jD,0);
+
+s@shop_materialpath = chs("matnet") + dictFjson[s@tmpPath];
+
+

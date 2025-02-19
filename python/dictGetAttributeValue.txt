@@ -1,0 +1,27 @@
+creer un dict en python
+
+import hou 
+node = hou.pwd()
+from pxr import Usd, UsdGeom, Sdf
+
+ls = hou.LopSelectionRule()
+ls.setPathPattern('%type:Mesh')
+paths = ls.expandedPaths(node.inputs()[0])
+
+stage = node.editableStage()
+
+
+mydict={}
+
+
+
+import json
+json_dict = json.dumps(mydict, indent=4)
+print (json_dict)
+for path in paths:
+    prim = stage.GetPrimAtPath(path)
+    mtl = prim.GetAttribute("mtlPath")
+    mtl =  mtl.Get()
+    key = "test"
+    dictTest = {key:mtl}
+    print(dictTest)

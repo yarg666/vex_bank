@@ -1,0 +1,24 @@
+
+
+from pxr import Usd, UsdGeom, Sdf
+# Use the drop down menu to select example code snippets.
+node = hou.pwd()
+
+# Add code to fetch node parameters and evaluate primitive patterns.
+# This should be done before calling editableStage or editableLayer.
+# paths = hou.LopSelectionRule("/*").expandedPaths(node.input(0))
+
+# Add code to modify the stage.
+stage = node.editableStage()
+
+prim_Path =  "/assets/toto/anim/TOTO_animationAsset_mayaComponent1/TOTO_animationAsset_mayaComponent1/TOTO_rigAsset_mayaComponent1/TOTO_geometryAsset_mayaComponent1/toto_GRP/toto/totoShapeDeformed"
+
+prim = stage.GetPrimAtPath(prim_Path)
+
+attr = prim.CreateAttribute("custom:stringAttr",Sdf.ValueTypeNames.String)
+
+print(attr)
+attr.Set("coucouc")
+
+
+

@@ -1,0 +1,1 @@
+s@mtlPath = usd_boundmaterialpath(0, @primpath); 
