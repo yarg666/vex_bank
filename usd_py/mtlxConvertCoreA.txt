@@ -1,0 +1,223 @@
+import hou 
+import os
+
+from pxr import Usd, UsdGeom, Sdf, UsdShade
+
+def get_stage_et_paths (node):
+    """  
+    Recupere le stage USD et les chemins des matériaux présents dans la scène.
+    """
+
+    #regle de selection
+    ls = hou.LopSelectionRule()
+    ls.setPathPattern('%descendants(%type(Material), strict=false)')
+    paths = ls.expandedPaths(node.inputs()[0])
+    stage = hou.pwd().inputs()[0].stage()
+    return stage, paths
+
+def get_shader_arnold_et_creer_matlib(node,stage,paths):
+    # init var
+    
+    pathL=[]
+
+    # recup les shader arnold
+    for path in paths:
+        prim = stage.GetPrimAtPath(path)
+        info_id = prim.GetAttribute("info:id")
+        info_id = info_id.Get()
+        if info_id == "arnold:standard_surface":
+            pathL.append(str(path))
+
+    # chemin du shader
+    common_path = os.path.commonpath(pathL).replace(os.sep,"/")
+    # creer et setter la mat lib
+    mtlLib = node.createOutputNode("materiallibrary","mtl_convert")
+    mtlLib.parm("matpathprefix").set(common_path+"/")
+
+    lenP = len(common_path.split("/"))
+
+    return pathL, lenP, mtlLib
+    
+def setup_material_parameters (mtlx_subnet):
+
+    hou_parm_template_group = hou.ParmTemplateGroup()
+    
+    # FOLDER MATERIALX
+    hou_parm_template = hou.FolderParmTemplate("folder1", "MaterialX Builder", folder_type=hou.folderType.Collapsible, default_value=0, ends_tab_group=False)
+    hou_parm_template.setTags({"group_type": "collapsible", "sidefx::shader_isparm": "0"})
+    # Inherit from Class
+    hou_parm_template2 = hou.IntParmTemplate("inherit_ctrl", "Inherit from Class", 1, default_value=([2]), min=0, max=10, min_is_strict=False, max_is_strict=False, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1, menu_items=(["0","1","2"]), menu_labels=(["Never","Always","Material Flag"]), icon_names=([]), item_generator_script="", item_generator_script_language=hou.scriptLanguage.Python, menu_type=hou.menuType.Normal, menu_use_token=False)
+    hou_parm_template.addParmTemplate(hou_parm_template2)
+    # Class Arc
+    hou_parm_template2 = hou.StringParmTemplate("shader_referencetype", "Class Arc", 1, default_value=(["n = hou.pwd()\nn_hasFlag = n.isMaterialFlagSet()\ni = n.evalParm('inherit_ctrl')\nr = 'none'\nif i == 1 or (n_hasFlag and i == 2):\n    r = 'inherit'\nreturn r"]), default_expression=(["n = hou.pwd()\nn_hasFlag = n.isMaterialFlagSet()\ni = n.evalParm('inherit_ctrl')\nr = 'none'\nif i == 1 or (n_hasFlag and i == 2):\n    r = 'inherit'\nreturn r"]), default_expression_language=([hou.scriptLanguage.Python]), naming_scheme=hou.parmNamingScheme.Base1, string_type=hou.stringParmType.Regular, menu_items=(["none","reference","inherit","specialize","represent"]), menu_labels=(["None","Reference","Inherit","Specialize","Represent"]), icon_names=([]), item_generator_script="", item_generator_script_language=hou.scriptLanguage.Python, menu_type=hou.menuType.Normal)
+    hou_parm_template2.setTags({"sidefx::shader_isparm": "0", "spare_category": "Shader"})
+    hou_parm_template.addParmTemplate(hou_parm_template2)
+    # Class Prim Path
+    hou_parm_template2 = hou.StringParmTemplate("shader_baseprimpath", "Class Prim Path", 1, default_value=(["/__class_mtl__/`$OS`"]), naming_scheme=hou.parmNamingScheme.Base1, string_type=hou.stringParmType.Regular, menu_items=([]), menu_labels=([]), icon_names=([]), item_generator_script="", item_generator_script_language=hou.scriptLanguage.Python, menu_type=hou.menuType.Normal)
+    hou_parm_template2.setTags({"script_action": "import lopshaderutils\nlopshaderutils.selectPrimFromInputOrFile(kwargs)", "script_action_help": "Select a primitive in the Scene Viewer or Scene Graph Tree pane.\nCtrl-click to select using the primitive picker dialog.", "script_action_icon": "BUTTONS_reselect", "sidefx::shader_isparm": "0", "sidefx::usdpathtype": "prim", "spare_category": "Shader"})
+    hou_parm_template.addParmTemplate(hou_parm_template2)
+    # Separator
+    hou_parm_template2 = hou.SeparatorParmTemplate("separator1")
+    hou_parm_template.addParmTemplate(hou_parm_template2)
+    # Tab Menu Mask
+    hou_parm_template2 = hou.StringParmTemplate("tabmenumask", "Tab Menu Mask", 1, default_value=(["MaterialX parameter constant collect null genericshader subnet subnetconnector suboutput subinput"]), naming_scheme=hou.parmNamingScheme.Base1, string_type=hou.stringParmType.Regular, menu_items=([]), menu_labels=([]), icon_names=([]), item_generator_script="", item_generator_script_language=hou.scriptLanguage.Python, menu_type=hou.menuType.Normal)
+    hou_parm_template2.setTags({"spare_category": "Tab Menu"})
+    hou_parm_template.addParmTemplate(hou_parm_template2)
+    # Render Context Name
+    hou_parm_template2 = hou.StringParmTemplate("shader_rendercontextname", "Render Context Name", 1, default_value=(["mtlx"]), naming_scheme=hou.parmNamingScheme.Base1, string_type=hou.stringParmType.Regular, menu_items=([]), menu_labels=([]), icon_names=([]), item_generator_script="", item_generator_script_language=hou.scriptLanguage.Python, menu_type=hou.menuType.Normal)
+    hou_parm_template2.setTags({"sidefx::shader_isparm": "0", "spare_category": "Shader"})
+    hou_parm_template.addParmTemplate(hou_parm_template2)
+    # Force Translation of Children
+    hou_parm_template2 = hou.ToggleParmTemplate("shader_forcechildren", "Force Translation of Children", default_value=True)
+    hou_parm_template2.setTags({"sidefx::shader_isparm": "0", "spare_category": "Shader"})
+    hou_parm_template.addParmTemplate(hou_parm_template2)
+    hou_parm_template_group.append(hou_parm_template)
+    
+    mtlx_subnet.setParmTemplateGroup(hou_parm_template_group)
+
+    return mtlx_subnet
+
+def build_mtlx(mtl,matName):
+    # recree le mtlx builder
+    surf_output = mtl.createNode("subnetconnector","surface_output")
+    surf_output.parm("connectorkind").set(1)
+    surf_output.parm("parmname").set("surface")
+    surf_output.parm("parmlabel").set("Surface")
+    surf_output.parm("parmtype").set(24)
+    # mtl standard surface
+    mtlx_surf = mtl.createNode("mtlxstandard_surface",matName)
+    surf_output.setInput(0,mtlx_surf)
+    # displacement out
+    surf_output = mtl.createNode("subnetconnector","displacement_output")
+    surf_output.parm("connectorkind").set(1)
+    surf_output.parm("parmname").set("displacement")
+    surf_output.parm("parmlabel").set("Displacement")
+    surf_output.parm("parmtype").set(25)
+    # displacemnt node
+    mtlx_disp = mtl.createNode("mtlxdisplacement")
+    surf_output.setInput(0,mtlx_disp)
+
+    return mtlx_surf
+
+def set_mtlx_stand_surf(stage,matDict,i,mtlx_surf):
+    # creer un dict avec tout les parms arnold 
+    prim = stage.GetPrimAtPath(i)
+    for attr in prim.GetAttributes():
+        attr_name = attr.GetName().replace("inputs:","")
+        attr_value = attr.Get()
+        matDict.update({attr_name:attr_value})
+    #recuperer tout les nom des parms 
+    parms_tuple = mtlx_surf.parmTuples()
+    parms = mtlx_surf.parms()
+    for parm_tuple in parms_tuple:
+        try:
+            mtlx_surf.parmTuple(parm_tuple.name()).set(matDict[parm_tuple.name()])
+        except:
+            pass
+    for parm in parms:
+        try:
+            mtlx_surf.parm(parm.name()).set(matDict[parm.name()])
+        except:
+            pass
+
+    return prim        
+
+def find_arnold_image(input, visited_nodes=set()):
+    """
+    Fonction récursive pour parcourir les connexions d'un input
+    jusqu'à trouver une prim Arnold:image, même si elle est imbriquée plusieurs niveaux plus loin.
+    """
+    if input.HasConnectedSource():
+        source, source_output_name, source_type = input.GetConnectedSource()
+        source_prim = source.GetPrim()
+
+        # Éviter les boucles infinies
+        if source_prim.GetPath() in visited_nodes:
+            return None, None  # Déjà visité, on arrête ici
+
+        visited_nodes.add(source_prim.GetPath())
+
+        # Vérifier si la source est un Arnold:image
+        source_info_id = source_prim.GetAttribute("info:id")
+        if source_info_id and source_info_id.Get() == "arnold:image":
+            # On a trouvé une texture Arnold:image !
+            image_node_path = source_prim.GetPath()
+            filename_attr = source_prim.GetAttribute("inputs:filename")
+            image_path = filename_attr.Get() if filename_attr else " Pas de fichier image"
+
+            return image_node_path, image_path  # Retourne le chemin du nœud et l'image
+        else:
+            # Continuer récursivement avec les inputs de cette prim
+            nested_shader = UsdShade.Shader(source_prim)
+            for nested_input in nested_shader.GetInputs():
+                nested_result = find_arnold_image(nested_input, visited_nodes)
+                if nested_result[0]:  # Si un arnold:image est trouvé plus bas, on arrête la recherche
+                    return nested_result
+                
+    return None, None  # Si rien n'est trouv
+
+def creer_et_connecter_les_nodes(image_node,mtl,mtlx_surf,input_name):
+
+    #creer les node images
+    primPath = image_node
+    primPath = str(primPath).split("/")[-1]
+    mtlx_image = mtl.createNode("mtlximage",primPath)
+
+    #connecter node image
+    input_index = mtlx_surf.inputIndex(input_name)
+    mtlx_surf.setInput(input_index,mtlx_image)
+
+    return mtlx_image
+
+def setter_les_param_images(mtlx_image,image_path):
+    
+    #setter parm node images
+    mtlx_image.parm("file").set(str(image_path).replace("@",""))
+    if "rec709" in str(image_path):
+        mtlx_image.parm("filecolorspace").set("lin_rec709")
+    elif "raw" in str(image_path):
+        mtlx_image.parm("filecolorspace").set("Raw")
+    else :
+        mtlx_image.parm("filecolorspace").set("lin_rec709")
+
+
+def main():
+
+    node = hou.pwd()
+    stage, paths = get_stage_et_paths (node)
+
+    # creer material librairie
+    pathL, lenP, mtlLib = get_shader_arnold_et_creer_matlib(node,stage,paths)
+    
+    #creer les shader
+    matDict = {}
+    for i in pathL:
+        matName = i.split("/")[lenP]
+
+        # cree subnet du mtlx 
+        mtl = mtlLib.createNode("subnet",matName)
+        mtl.setMaterialFlag(True)
+
+        # setup mtlx subnet
+        setup_material_parameters (mtl)
+
+        # build mtlx material
+        mtlx_surf = build_mtlx(mtl,matName)
+
+        # setup standard surface parameter
+        prim = set_mtlx_stand_surf(stage,matDict,i,mtlx_surf)
+
+        # recupperer les nodes images
+        shader = UsdShade.Shader(prim)
+        for input in shader.GetInputs():
+            input_name = input.GetBaseName() 
+            image_node, image_path = find_arnold_image(input)
+
+            # checker si l input est connecte
+            if image_node is not None and image_path is not None:
+
+                # creer et connecter les nodes
+                mtlx_image = creer_et_connecter_les_nodes(image_node,mtl,mtlx_surf,input_name)
+                setter_les_param_images(mtlx_image,image_path)
+
+main()

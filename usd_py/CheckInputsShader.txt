@@ -1,0 +1,39 @@
+import hou
+import os
+from pxr import Usd, UsdShade
+
+# Récupérer la scène USD
+node = hou.pwd()
+stage = node.inputs()[0].stage()
+
+print(" Recherche des shaders Arnold standard_surface...")
+
+arnold_shaders = []  # Liste des shaders Arnold standard_surface
+arnold_images = []    # Liste des textures Arnold:image branchées
+
+# Parcourir toutes les prims dans l'USD
+for prim in stage.Traverse():
+    if "preview" not in prim.GetName() and prim.GetTypeName() == "Shader":
+        info_id_attr = prim.GetAttribute("info:id")
+        
+        # Vérifier si c'est un shader Arnold standard_surface
+        if info_id_attr and info_id_attr.Get() == "arnold:standard_surface":
+            arnold_shaders.append(prim.GetPath())
+
+            # Vérifier si le shader a une connexion vers un arnold:image
+            shader = UsdShade.Shader(prim)
+
+            for input in shader.GetInputs():
+                if input.HasConnectedSource():
+                    source, source_output_name, source_type = input.GetConnectedSource()
+                    source_prim = source.GetPrim()
+
+                    # Vérifier si la source est un Arnold:image
+                    source_info_id = source_prim.GetAttribute("info:id")
+                    if source_info_id and source_info_id.Get() == "arnold:image":
+                        arnold_images.append(source_prim.GetPath())
+                        print(f"🎨 {prim.GetPath()} utilise une texture Arnold : {source_prim.GetPath()}")
+
+print(f"Trouvé {len(arnold_shaders)} shaders Arnold standard_surface.")
+print(f"Trouvé {len(arnold_images)} textures Arnold:image utilisées.")
+

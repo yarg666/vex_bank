@@ -1,0 +1,75 @@
+import hou 
+import os
+node = hou.pwd()
+from pxr import Usd, UsdGeom, Sdf
+
+
+ls = hou.LopSelectionRule()
+#ls.setPathPattern('%type:Mesh')
+# recupere tout les mat du stage
+ls.setPathPattern('%descendants(%type(Material), strict=false)')
+#ls.setPathPattern('%type(Material)')
+paths = ls.expandedPaths(node.inputs()[0])
+stage = hou.pwd().inputs()[0].stage()
+pathL=[]
+# recup les shader arnold
+for path in paths:
+    prim = stage.GetPrimAtPath(path)
+    info_id = prim.GetAttribute("info:id")
+    info_id = info_id.Get()
+    if info_id == "arnold:standard_surface":
+        pathL.append(str(path))
+        
+common_path = os.path.commonpath(pathL).replace(os.sep,"/")
+
+mtlLib = node.createOutputNode("materiallibrary","mtl_convert")
+mtlLibPath = mtlLib.path()
+mtlLib.parm("matpathprefix").set(common_path)
+lenP = len(common_path.split("/"))
+
+matDict = {}
+for i in pathL:
+    matName = i.split("/")[lenP]
+    # cree subnet du mtlx 
+    mtl = mtlLib.createNode("subnet",matName)
+    mtl.setMaterialFlag(True)
+    # recree le mtlx builder
+    surf_output = mtl.createNode("subnetconnector","surface_output")
+    surf_output.parm("connectorkind").set(1)
+    surf_output.parm("parmname").set("surface")
+    surf_output.parm("parmlabel").set("Surface")
+    surf_output.parm("parmtype").set(24)
+    # mtl standard surface
+    mtlx_surf = mtl.createNode("mtlxstandard_surface",matName)
+    surf_output.setInput(0,mtlx_surf)
+    # displacement out
+    surf_output = mtl.createNode("subnetconnector","displacement_output")
+    surf_output.parm("connectorkind").set(1)
+    surf_output.parm("parmname").set("displacement")
+    surf_output.parm("parmlabel").set("Displacement")
+    surf_output.parm("parmtype").set(25)
+    # displacemnt node
+    mtlx_disp = mtl.createNode("mtlxdisplacement")
+    surf_output.setInput(0,mtlx_disp)        
+    # creer un dict avec tout les parms arnold 
+    prim = stage.GetPrimAtPath(i)
+    for attr in prim.GetAttributes():
+        attr_name = attr.GetName().replace("inputs:","")
+        attr_value = attr.Get()
+        matDict.update({attr_name:attr_value})
+    #recuperer tout les nom des parms 
+    parms_tuple = mtlx_surf.parmTuples()
+    parms = mtlx_surf.parms()
+    for parm_tuple in parms_tuple:
+        print(parm_tuple.name())
+        try:
+            mtlx_surf.parmTuple(parm_tuple.name()).set(matDict[parm_tuple.name()])
+        except:
+            pass
+    for parm in parms:
+        print(parm.name())
+        try:
+            mtlx_surf.parm(parm.name()).set(matDict[parm.name()])
+        except:
+            pass
+

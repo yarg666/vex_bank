@@ -1,0 +1,38 @@
+import hou 
+import os
+node = hou.pwd()
+from pxr import Usd, UsdGeom, Sdf
+
+
+ls = hou.LopSelectionRule()
+#ls.setPathPattern('%type:Mesh')
+# recupere tout les mat du stage
+ls.setPathPattern('%descendants(%type(Material), strict=false)')
+#ls.setPathPattern('%type(Material)')
+paths = ls.expandedPaths(node.inputs()[0])
+stage = hou.pwd().inputs()[0].stage()
+pathL=[]
+# recup les shader arnold
+for path in paths:
+    prim = stage.GetPrimAtPath(path)
+    info_id = prim.GetAttribute("info:id")
+    info_id = info_id.Get()
+    if info_id == "arnold:standard_surface":
+        pathL.append(str(path))
+        
+common_path = os.path.commonpath(pathL).replace(os.sep,"/")
+
+#mtlLib = node.createOutputNode("materiallibrary","mtl_convert")
+#mtlLibPath = mtlLib.path()
+#mtlLib.parm("matpathprefix").set(common_path)
+lenP = len(common_path.split("/"))
+matDict={}
+for i in pathL:
+    prim = stage.GetPrimAtPath(i)
+    for attr in prim.GetAttributes():
+        attr_name = attr.GetName()
+        attr_value = attr.Get()
+        matDict.update({attr_name:attr_value})
+    
+print(matDict)
+    

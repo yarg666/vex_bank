@@ -1,0 +1,41 @@
+//python
+
+import hou 
+node = hou.pwd()
+from pxr import Usd, UsdGeom, Sdf
+
+ls = hou.LopSelectionRule()
+ls.setPathPattern('%type:Mesh')
+paths = ls.expandedPaths(node.inputs()[0])
+
+stage = node.editableStage()
+
+mydict={}
+
+import json
+json_dict = json.dumps(mydict, indent=4)
+for path in paths:
+    prim = stage.GetPrimAtPath(path)
+    sPath = prim.GetAttribute("primvars:simplePath").Get()[0]
+    print(sPath)
+    mydict.update({sPath:str(path)})
+
+print(mydict)
+xform = UsdGeom.Xform.Define(stage, "/MyCustomPrim")
+
+json_dict = json.dumps(mydict, indent=4)        
+attr = xform.GetPrim().CreateAttribute("jsonDictForPref",Sdf.ValueTypeNames.String)
+attr.Set(json_dict)
+
+
+
+//vex
+string jD = s@jsonDictForPref;
+
+dict dictFjson = json_loads(jD,0);
+//s@test = @primpath;
+//s@test = dictFjson[s@tmpPath];
+//v[]@test = usd_attrib(1,dictFjson[s@tmpPath],"primvars:Pref");
+
+v[]@primvars:Pref=usd_attrib(1,dictFjson[s@tmpPath],"primvars:Pref");
+//s@materialpath = dictFjson[s@tmpPath];
