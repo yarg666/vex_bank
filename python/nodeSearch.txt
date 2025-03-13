@@ -1,0 +1,17 @@
+node = hou.pwd()
+print(node)
+
+parent = node.parent().path()
+print(parent)
+
+import nodesearch
+matchType = nodesearch.NodeType("rendervar")
+matchName = nodesearch.Name("*")
+match = nodesearch.Group([matchType,matchName])
+
+net = hou.node(parent)
+for n in match.nodes(net,recursive =True):
+        targetP = n.parm("sourceName").eval()
+        targetP = targetP.replace("C.","C.*")
+        #print(targetP)
+        n.parm("sourceName").set(targetP)
