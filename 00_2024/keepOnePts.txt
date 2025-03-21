@@ -1,0 +1,4 @@
+if (@ptnum != int(rand(floor(@frame/5) + chi("seed")) * @numpt))
+    removepoint(0, @ptnum);
+    
+f@pscale=fit01(rand(floor(@frame/5)),10,20);
