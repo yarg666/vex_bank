@@ -1,0 +1,1 @@
+ch("../../obj/" + strreplace(strsplit(opname("."), "_", 0), " ", "") + "/transform_zion2/tx")
