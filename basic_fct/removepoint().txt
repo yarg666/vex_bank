@@ -1,0 +1,2 @@
+removepoint(0, @ptnum,1);
+
